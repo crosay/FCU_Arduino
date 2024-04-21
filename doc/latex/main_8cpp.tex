@@ -1,0 +1,232 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$arduino.\+h$>$}\newline
+{\ttfamily \#include "{}XPLPro.\+h"{}}\newline
+{\ttfamily \#include "{}KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+h"{}}\newline
+{\ttfamily \#include "{}Av\+Encoder.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a0e765ab7fbf87f0a2aaab833c1bf8815}{FCU\+\_\+\+CS}}~8
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a99ca075f3e07718d05f9eb5237758a26}{FCU\+\_\+\+CLK}}~9
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a07b58ce022021862beecf0d42eb43bcb}{FCU\+\_\+\+DATA}}~10
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a5f5a2c9450ebc584b4fe743c6b1a280b}{DEVICE\+\_\+\+NAME}}~"{}FCU"{}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a00b71fec37b582e1f07f33078cfc8f86}{NAV\+\_\+\+MODE\+\_\+\+PIN}}~19
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ac9e3be9a66f712103c76d16a199b94d1}{HDG\+\_\+\+MODE\+\_\+\+PIN}}~18
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ae6e09992aee669ad64e883f29d92413f}{HDG\+\_\+\+PIN\+\_\+A}}~2
+\item 
+\#define \mbox{\hyperlink{main_8cpp_afd656af6d5e8955cdcc607431b91ed23}{HDG\+\_\+\+PIN\+\_\+B}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD \mbox{\hyperlink{main_8cpp_acb6cf1bc52d043df51e565de6bfc3cca}{fcu}} (\mbox{\hyperlink{main_8cpp_a0e765ab7fbf87f0a2aaab833c1bf8815}{FCU\+\_\+\+CS}}, \mbox{\hyperlink{main_8cpp_a99ca075f3e07718d05f9eb5237758a26}{FCU\+\_\+\+CLK}}, \mbox{\hyperlink{main_8cpp_a07b58ce022021862beecf0d42eb43bcb}{FCU\+\_\+\+DATA}})
+\item 
+Av\+Encoder \mbox{\hyperlink{main_8cpp_a3fbc28546e05fbaab49f9d8d332bd22b}{hdg}} (\mbox{\hyperlink{main_8cpp_ae6e09992aee669ad64e883f29d92413f}{HDG\+\_\+\+PIN\+\_\+A}}, \mbox{\hyperlink{main_8cpp_afd656af6d5e8955cdcc607431b91ed23}{HDG\+\_\+\+PIN\+\_\+B}}, 1)
+\item 
+void \mbox{\hyperlink{main_8cpp_a5585b0557d0f10f8a00a77c1a94ba890}{Error\+Blink}} (int pin, int count)
+\item 
+void \mbox{\hyperlink{main_8cpp_a88036d2bbb7945bb5249cd1eb7d2c9b6}{on\+Batt\+Change}} (int old, int new\+\_\+value)
+\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+XPLDirect Xinterface \& \mbox{\hyperlink{main_8cpp_a6012534be61c5e24ed1a9c9cfc428e1f}{Serial}}
+\item 
+long int \mbox{\hyperlink{main_8cpp_af957f358304dca8bf014d8581cf023aa}{avionics}} = 0
+\item 
+long int \mbox{\hyperlink{main_8cpp_a12286dc6f168d2354ea5515d93682281}{batt}} = 0
+\item 
+long int \mbox{\hyperlink{main_8cpp_a767e8d0e92778584e4863edb736c1eb2}{heading}} = 0
+\item 
+long int \mbox{\hyperlink{main_8cpp_aee8e9f202d94ea6a6585e50bd3b66da9}{old\+\_\+heading}} = -\/1
+\item 
+bool \mbox{\hyperlink{main_8cpp_a2b3ce512456c18fd3c8ca4b67cc95085}{lcd\+\_\+on}} = false
+\item 
+int \mbox{\hyperlink{main_8cpp_a79f08882b2805cb94f4a2d3532e7cdf6}{hdg\+\_\+up}} = 0
+\item 
+int \mbox{\hyperlink{main_8cpp_a4ddfa3859bb3a149444b737b2504b706}{hdg\+\_\+dn}} = 0
+\item 
+int \mbox{\hyperlink{main_8cpp_a3d361d527bcda1d0a0f3c4528badf8b6}{cmd\+Nav\+Mode}}
+\item 
+int \mbox{\hyperlink{main_8cpp_ac4a3a6e0d7ea028a872685fe09654458}{cmd\+Hdg\+Mode}}
+\item 
+int \mbox{\hyperlink{main_8cpp_aaa62d5859fcaeb7f929bae0b5e784080}{cmd\+Hdg\+Up}}
+\item 
+int \mbox{\hyperlink{main_8cpp_a46c1cc74882d1ba5a8ad8d60a833b375}{cmd\+Hdg\+Dn}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_a5f5a2c9450ebc584b4fe743c6b1a280b}\label{main_8cpp_a5f5a2c9450ebc584b4fe743c6b1a280b} 
+\index{main.cpp@{main.cpp}!DEVICE\_NAME@{DEVICE\_NAME}}
+\index{DEVICE\_NAME@{DEVICE\_NAME}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_NAME}{DEVICE\_NAME}}
+{\footnotesize\ttfamily \#define DEVICE\+\_\+\+NAME~"{}FCU"{}}
+
+\Hypertarget{main_8cpp_a99ca075f3e07718d05f9eb5237758a26}\label{main_8cpp_a99ca075f3e07718d05f9eb5237758a26} 
+\index{main.cpp@{main.cpp}!FCU\_CLK@{FCU\_CLK}}
+\index{FCU\_CLK@{FCU\_CLK}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{FCU\_CLK}{FCU\_CLK}}
+{\footnotesize\ttfamily \#define FCU\+\_\+\+CLK~9}
+
+\Hypertarget{main_8cpp_a0e765ab7fbf87f0a2aaab833c1bf8815}\label{main_8cpp_a0e765ab7fbf87f0a2aaab833c1bf8815} 
+\index{main.cpp@{main.cpp}!FCU\_CS@{FCU\_CS}}
+\index{FCU\_CS@{FCU\_CS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{FCU\_CS}{FCU\_CS}}
+{\footnotesize\ttfamily \#define FCU\+\_\+\+CS~8}
+
+\Hypertarget{main_8cpp_a07b58ce022021862beecf0d42eb43bcb}\label{main_8cpp_a07b58ce022021862beecf0d42eb43bcb} 
+\index{main.cpp@{main.cpp}!FCU\_DATA@{FCU\_DATA}}
+\index{FCU\_DATA@{FCU\_DATA}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{FCU\_DATA}{FCU\_DATA}}
+{\footnotesize\ttfamily \#define FCU\+\_\+\+DATA~10}
+
+\Hypertarget{main_8cpp_ac9e3be9a66f712103c76d16a199b94d1}\label{main_8cpp_ac9e3be9a66f712103c76d16a199b94d1} 
+\index{main.cpp@{main.cpp}!HDG\_MODE\_PIN@{HDG\_MODE\_PIN}}
+\index{HDG\_MODE\_PIN@{HDG\_MODE\_PIN}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_MODE\_PIN}{HDG\_MODE\_PIN}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+MODE\+\_\+\+PIN~18}
+
+\Hypertarget{main_8cpp_ae6e09992aee669ad64e883f29d92413f}\label{main_8cpp_ae6e09992aee669ad64e883f29d92413f} 
+\index{main.cpp@{main.cpp}!HDG\_PIN\_A@{HDG\_PIN\_A}}
+\index{HDG\_PIN\_A@{HDG\_PIN\_A}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_PIN\_A}{HDG\_PIN\_A}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+PIN\+\_\+A~2}
+
+\Hypertarget{main_8cpp_afd656af6d5e8955cdcc607431b91ed23}\label{main_8cpp_afd656af6d5e8955cdcc607431b91ed23} 
+\index{main.cpp@{main.cpp}!HDG\_PIN\_B@{HDG\_PIN\_B}}
+\index{HDG\_PIN\_B@{HDG\_PIN\_B}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_PIN\_B}{HDG\_PIN\_B}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+PIN\+\_\+B~3}
+
+\Hypertarget{main_8cpp_a00b71fec37b582e1f07f33078cfc8f86}\label{main_8cpp_a00b71fec37b582e1f07f33078cfc8f86} 
+\index{main.cpp@{main.cpp}!NAV\_MODE\_PIN@{NAV\_MODE\_PIN}}
+\index{NAV\_MODE\_PIN@{NAV\_MODE\_PIN}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{NAV\_MODE\_PIN}{NAV\_MODE\_PIN}}
+{\footnotesize\ttfamily \#define NAV\+\_\+\+MODE\+\_\+\+PIN~19}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a5585b0557d0f10f8a00a77c1a94ba890}\label{main_8cpp_a5585b0557d0f10f8a00a77c1a94ba890} 
+\index{main.cpp@{main.cpp}!ErrorBlink@{ErrorBlink}}
+\index{ErrorBlink@{ErrorBlink}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ErrorBlink()}{ErrorBlink()}}
+{\footnotesize\ttfamily void Error\+Blink (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_acb6cf1bc52d043df51e565de6bfc3cca}\label{main_8cpp_acb6cf1bc52d043df51e565de6bfc3cca} 
+\index{main.cpp@{main.cpp}!fcu@{fcu}}
+\index{fcu@{fcu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fcu()}{fcu()}}
+{\footnotesize\ttfamily KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD fcu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8cpp_a0e765ab7fbf87f0a2aaab833c1bf8815}{FCU\+\_\+\+CS}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a99ca075f3e07718d05f9eb5237758a26}{FCU\+\_\+\+CLK}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a07b58ce022021862beecf0d42eb43bcb}{FCU\+\_\+\+DATA}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a3fbc28546e05fbaab49f9d8d332bd22b}\label{main_8cpp_a3fbc28546e05fbaab49f9d8d332bd22b} 
+\index{main.cpp@{main.cpp}!hdg@{hdg}}
+\index{hdg@{hdg}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{hdg()}{hdg()}}
+{\footnotesize\ttfamily Av\+Encoder hdg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8cpp_ae6e09992aee669ad64e883f29d92413f}{HDG\+\_\+\+PIN\+\_\+A}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_afd656af6d5e8955cdcc607431b91ed23}{HDG\+\_\+\+PIN\+\_\+B}}}]{,  }\item[{1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a88036d2bbb7945bb5249cd1eb7d2c9b6}\label{main_8cpp_a88036d2bbb7945bb5249cd1eb7d2c9b6} 
+\index{main.cpp@{main.cpp}!onBattChange@{onBattChange}}
+\index{onBattChange@{onBattChange}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{onBattChange()}{onBattChange()}}
+{\footnotesize\ttfamily void on\+Batt\+Change (\begin{DoxyParamCaption}\item[{int}]{old,  }\item[{int}]{new\+\_\+value }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_af957f358304dca8bf014d8581cf023aa}\label{main_8cpp_af957f358304dca8bf014d8581cf023aa} 
+\index{main.cpp@{main.cpp}!avionics@{avionics}}
+\index{avionics@{avionics}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{avionics}{avionics}}
+{\footnotesize\ttfamily long int avionics = 0}
+
+\Hypertarget{main_8cpp_a12286dc6f168d2354ea5515d93682281}\label{main_8cpp_a12286dc6f168d2354ea5515d93682281} 
+\index{main.cpp@{main.cpp}!batt@{batt}}
+\index{batt@{batt}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{batt}{batt}}
+{\footnotesize\ttfamily long int batt = 0}
+
+\Hypertarget{main_8cpp_a46c1cc74882d1ba5a8ad8d60a833b375}\label{main_8cpp_a46c1cc74882d1ba5a8ad8d60a833b375} 
+\index{main.cpp@{main.cpp}!cmdHdgDn@{cmdHdgDn}}
+\index{cmdHdgDn@{cmdHdgDn}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cmdHdgDn}{cmdHdgDn}}
+{\footnotesize\ttfamily int cmd\+Hdg\+Dn}
+
+\Hypertarget{main_8cpp_ac4a3a6e0d7ea028a872685fe09654458}\label{main_8cpp_ac4a3a6e0d7ea028a872685fe09654458} 
+\index{main.cpp@{main.cpp}!cmdHdgMode@{cmdHdgMode}}
+\index{cmdHdgMode@{cmdHdgMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cmdHdgMode}{cmdHdgMode}}
+{\footnotesize\ttfamily int cmd\+Hdg\+Mode}
+
+\Hypertarget{main_8cpp_aaa62d5859fcaeb7f929bae0b5e784080}\label{main_8cpp_aaa62d5859fcaeb7f929bae0b5e784080} 
+\index{main.cpp@{main.cpp}!cmdHdgUp@{cmdHdgUp}}
+\index{cmdHdgUp@{cmdHdgUp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cmdHdgUp}{cmdHdgUp}}
+{\footnotesize\ttfamily int cmd\+Hdg\+Up}
+
+\Hypertarget{main_8cpp_a3d361d527bcda1d0a0f3c4528badf8b6}\label{main_8cpp_a3d361d527bcda1d0a0f3c4528badf8b6} 
+\index{main.cpp@{main.cpp}!cmdNavMode@{cmdNavMode}}
+\index{cmdNavMode@{cmdNavMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cmdNavMode}{cmdNavMode}}
+{\footnotesize\ttfamily int cmd\+Nav\+Mode}
+
+\Hypertarget{main_8cpp_a4ddfa3859bb3a149444b737b2504b706}\label{main_8cpp_a4ddfa3859bb3a149444b737b2504b706} 
+\index{main.cpp@{main.cpp}!hdg\_dn@{hdg\_dn}}
+\index{hdg\_dn@{hdg\_dn}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{hdg\_dn}{hdg\_dn}}
+{\footnotesize\ttfamily int hdg\+\_\+dn = 0}
+
+\Hypertarget{main_8cpp_a79f08882b2805cb94f4a2d3532e7cdf6}\label{main_8cpp_a79f08882b2805cb94f4a2d3532e7cdf6} 
+\index{main.cpp@{main.cpp}!hdg\_up@{hdg\_up}}
+\index{hdg\_up@{hdg\_up}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{hdg\_up}{hdg\_up}}
+{\footnotesize\ttfamily int hdg\+\_\+up = 0}
+
+\Hypertarget{main_8cpp_a767e8d0e92778584e4863edb736c1eb2}\label{main_8cpp_a767e8d0e92778584e4863edb736c1eb2} 
+\index{main.cpp@{main.cpp}!heading@{heading}}
+\index{heading@{heading}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{heading}{heading}}
+{\footnotesize\ttfamily long int heading = 0}
+
+\Hypertarget{main_8cpp_a2b3ce512456c18fd3c8ca4b67cc95085}\label{main_8cpp_a2b3ce512456c18fd3c8ca4b67cc95085} 
+\index{main.cpp@{main.cpp}!lcd\_on@{lcd\_on}}
+\index{lcd\_on@{lcd\_on}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lcd\_on}{lcd\_on}}
+{\footnotesize\ttfamily bool lcd\+\_\+on = false}
+
+\Hypertarget{main_8cpp_aee8e9f202d94ea6a6585e50bd3b66da9}\label{main_8cpp_aee8e9f202d94ea6a6585e50bd3b66da9} 
+\index{main.cpp@{main.cpp}!old\_heading@{old\_heading}}
+\index{old\_heading@{old\_heading}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{old\_heading}{old\_heading}}
+{\footnotesize\ttfamily long int old\+\_\+heading = -\/1}
+
+\Hypertarget{main_8cpp_a6012534be61c5e24ed1a9c9cfc428e1f}\label{main_8cpp_a6012534be61c5e24ed1a9c9cfc428e1f} 
+\index{main.cpp@{main.cpp}!Serial@{Serial}}
+\index{Serial@{Serial}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Serial}{Serial}}
+{\footnotesize\ttfamily XPLDirect Xinterface\& Serial}
+

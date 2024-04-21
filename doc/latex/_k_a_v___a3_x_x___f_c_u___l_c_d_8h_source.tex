@@ -1,0 +1,88 @@
+\doxysection{KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+h}
+\hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8h_source}{}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8h_source}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/KAV\_A3XX\_FCU\_LCD.h@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/KAV\_A3XX\_FCU\_LCD.h}}
+\mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_KAV\_A3XX\_FCU\_LCD\_h}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_KAV\_A3XX\_FCU\_LCD\_h}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ BUFFER\_SIZE\_MAX\ 16}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#if\ ARDUINO\ >=\ 100}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}WProgram.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_h_t1621_8h}{HT1621.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d}{KAV\_A3XX\_FCU\_LCD}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//\ Fields}}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{class_h_t1621}{HT1621}}\ ht;}
+\DoxyCodeLine{00023\ \ \ uint8\_t\ buffer[\mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8h_a325e09b7a43db95029cfc49d40ed66b1}{BUFFER\_SIZE\_MAX}}];}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{bool}\ vertSignEnabled;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{bool}\ \_initialised;}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{byte}\ \_CS;}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{byte}\ \_CLK;}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{byte}\ \_DATA;}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{bool}\ trkActive;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ handleMobiFlightCmd(\textcolor{keywordtype}{char}\ *\textcolor{keywordtype}{string});}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ displayDigit(uint8\_t\ address,\ uint8\_t\ digit);}
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//void\ setBufferBit(uint8\_t\ address,\ uint8\_t\ bit,\ uint8\_t\ enabled);}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ refreshLCD(uint8\_t\ address);}
+\DoxyCodeLine{00036\ \ \ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ 'CLK'\ is\ sometimes\ referred\ to\ as\ 'RW'}}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a684107fd83c0d76a08091d2feab500ab}{KAV\_A3XX\_FCU\_LCD}}(uint8\_t\ CS,\ uint8\_t\ CLK,\ uint8\_t\ DATA)\ :\ ht(CS,\ CLK,\ DATA),\ vertSignEnabled(true)\ \{\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a14052ed517f40639976399ed34a78c8d}{begin}}();}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_aff5b8f17f55e401f0558c4ae2e1e0293}{clearLCD}}();}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a6050032c5aa99c13faf3c3c32db632e7}{attach}}(\textcolor{keywordtype}{byte}\ CS,\ \textcolor{keywordtype}{byte}\ CLK,\ \textcolor{keywordtype}{byte}\ DATA);}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a4f65121ae76763084b3030d0610f4645}{detach}}();}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a62fbe1395ca8f18b9011c4758a953fef}{handleMobiFlightRaw}}(\textcolor{keywordtype}{char}\ *\textcolor{keywordtype}{string});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//Speed\ and\ Mach\ functions}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a98bfbf25a315e908c3f21a7e7b302277}{setSpeedLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a16e5d2bacff74b704792fce54ba4526a}{setMachLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2797d2ef265f5a54e5c273a53e6238ba}{setSpeedDot}}(int8\_t\ state);}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5acd07e0619ad44f8e9712ff771ece05}{showSpeedValue}}(uint16\_t\ value);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//Heading,\ Track\ and\ Latitude\ Functions}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2600b80c78f202e91e55d104b4e3b36e}{setHeadingLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a0c803adfa3b75073205aa75cdd116104}{setTrackLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a95ce57bd71c599dc54910bcee25f3ad8}{setLatitudeLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_aec5a31f9e92fbaa635e64677507413e5}{setHeadingDot}}(int8\_t\ state);}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_ae73b8462f89327bfe53544c710a0720d}{showHeadingValue}}(uint16\_t\ value);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//Altitude\ Functions}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2f1ae1841642835564e9438fbc677b3f}{setAltitudeLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a83aeb910903c98b5fe9286ea08f9005d}{setLvlChLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a094bdbf4c57037b95ce5e55e1e964edd}{setAltitudeDot}}(int8\_t\ state);}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a765f682fde6e8a66c5cfe87fa6a854aa}{showAltitudeValue}}(uint32\_t\ value);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//Vertical\_Speed\ \&\ FPA\ Functions}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a24f565848a947acd22c535d4749d7f79}{setVrtSpdLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a074f3159d314f5ae6b0f2c748ddb1729}{setFPALabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a248b66965c3ec20070432e816f5ed415}{setSignLabel}}(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a96d509226dc925f1713a229c3819ac02}{showVerticalValue}}(int16\_t\ value);}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a37d97783049dd71c384aca07f2d44f15}{showFPAValue}}(int8\_t\ value);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//Preset\ States}}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5d902c14191f9bdfbfbb0ea35d3eb87c}{setSpeedDashes}}(int8\_t\ state);}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2bf14d0ea5007404bdd1877d87b06184}{setHeadingDashes}}(int8\_t\ state);}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a1e56d08534836dedf00a05517317cc09}{setAltitudeDashes}}(int8\_t\ state);}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a8a61d54dc91a9a493d37a054dfcdafb8}{setVrtSpdDashes}}(int8\_t\ state);}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a05171bf2ea5616dcaae90403a1cf82b6}{setStartLabels}}();}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_adbfc07a1e0acb7b7a16f59fff301ed38}{toggleTrkHdgMode}}(int8\_t\ state);}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a76f1bba1fa808466859f9ee3928b36a3}{setHeadingMode}}();}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7271a58c0581f9471bcdd0b6fbd25a2c}{setTrackMode}}();}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a393266e5f10d37bb33c5b7deace786c7}{setSpeedMode}}(uint16\_t\ value);}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7bae45f1447532249a9c76a950a95aaa}{setMachMode}}(uint16\_t\ value);}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAV\_A3XX\_FCU\_LCD\_h}}
+
+\end{DoxyCode}

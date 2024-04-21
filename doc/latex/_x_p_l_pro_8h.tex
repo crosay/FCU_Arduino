@@ -1,0 +1,311 @@
+\doxysection{C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\+XPLPro.h File Reference}
+\hypertarget{_x_p_l_pro_8h}{}\label{_x_p_l_pro_8h}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/XPLPro.h@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/XPLPro.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$avr/dtostrf.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structin_struct}{in\+Struct}}
+\item 
+class \mbox{\hyperlink{class_x_p_l_pro}{XPLPro}}
+\begin{DoxyCompactList}\small\item\em Core class for the \doxylink{class_x_p_l_pro}{XPLPro} Arduino library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ad8a30f2d20569abf12942a6085ca4723}{XPL\+\_\+\+FLOATPRECISION}}~4
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a2b969dceda2a00f959e1b635c65cc4e3}{XPL\+\_\+\+RESPONSE\+\_\+\+TIMEOUT}}~90000
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ade375bc8e35fdd37b3e80ea62bf27055}{XPL\+\_\+\+USE\+\_\+\+PROGMEM}}~0
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ada0075933130c660e99c739c73677ddf}{XPLMAX\+\_\+\+PACKETSIZE\+\_\+\+TRANSMIT}}~200
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a9b7df8b1a3379823b154785211b0a582}{XPLMAX\+\_\+\+PACKETSIZE\+\_\+\+RECEIVE}}~200
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a419e2b6f4f5a8bd81cd1b9ce30909a80}{XPL\+\_\+\+BAUDRATE}}~115200
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ad6944bb055a4cb10e7f80cf622fff783}{XPL\+\_\+\+RX\+\_\+\+TIMEOUT}}~500
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a86dab4acb464e5fd98c44abcef0413ad}{XPL\+\_\+\+PACKETHEADER}}~\textquotesingle{}\mbox{[}\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a376a2e9601f1604638c7b6f04d48edf2}{XPL\+\_\+\+PACKETTRAILER}}~\textquotesingle{}\mbox{]}\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a1e47f5b1a3d2b000496c9880f29382cc}{XPL\+\_\+\+HANDLE\+\_\+\+INVALID}}~-\/1
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a77630ec1b5eddcc7c5256a37509ae1e2}{XPLCMD\+\_\+\+SENDNAME}}~\textquotesingle{}N\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_abdb15067ad3c08510ece4a70af198676}{XPLRESPONSE\+\_\+\+NAME}}~\textquotesingle{}n\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a5125543319bd00f46771dc697404123b}{XPLCMD\+\_\+\+SENDREQUEST}}~\textquotesingle{}Q\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a435a26bec5cf2feba097ec08767ad832}{XPLCMD\+\_\+\+FLIGHTLOOPPAUSE}}~\textquotesingle{}p\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a55f0a7c5eafaebd0c8649c131d9fd5ce}{XPLCMD\+\_\+\+FLIGHTLOOPRESUME}}~\textquotesingle{}q\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_acff98b3d4930a1fbda307a77b06a2b07}{XPLREQUEST\+\_\+\+REGISTERDATAREF}}~\textquotesingle{}b\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a1a5c10f0ae344f2fae79d98591c1e2ea}{XPLREQUEST\+\_\+\+REGISTERCOMMAND}}~\textquotesingle{}m\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a5beaa80933dc3e1814c1a07a8aaba801}{XPLRESPONSE\+\_\+\+DATAREF}}~\textquotesingle{}D\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_acccfb1298ec3a6c81922cbb749fa2625}{XPLRESPONSE\+\_\+\+COMMAND}}~\textquotesingle{}C\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a73dfb0ad25c604300a69bf7edce2e51c}{XPLCMD\+\_\+\+PRINTDEBUG}}~\textquotesingle{}g\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a622731b7de671c628b851513e8a8c336}{XPLCMD\+\_\+\+SPEAK}}~\textquotesingle{}s\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ac3a2a58361587611ed4d35ee560298dc}{XPLREQUEST\+\_\+\+UPDATES}}~\textquotesingle{}r\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a4b3c0454160dc1fc798f8f95041ab901}{XPLREQUEST\+\_\+\+UPDATESARRAY}}~\textquotesingle{}t\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ac8165a3be4e76a7299899098148f1d40}{XPLREQUEST\+\_\+\+SCALING}}~\textquotesingle{}u\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ad70fdbe6e42376a33ff3100abb01be40}{XPLREQUEST\+\_\+\+DATAREFVALUE}}~\textquotesingle{}e\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_aada40df2e99b6c6288d8ef1879f281db}{XPLCMD\+\_\+\+RESET}}~\textquotesingle{}z\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a3201d22ca41851f7c56dafc40cb468ba}{XPLCMD\+\_\+\+DATAREFUPDATEINT}}~\textquotesingle{}1\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ae02fa2d3b0031e7601b087a66696c207}{XPLCMD\+\_\+\+DATAREFUPDATEFLOAT}}~\textquotesingle{}2\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a09244fa709120c946ed6b46d301f91fa}{XPLCMD\+\_\+\+DATAREFUPDATEINTARRAY}}~\textquotesingle{}3\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a3a79b5e89f3d634fd27936a33f9beb24}{XPLCMD\+\_\+\+DATAREFUPDATEFLOATARRAY}}~\textquotesingle{}4\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_aacc3a528d3a3c8eb1e14a4d8aaf471a8}{XPLCMD\+\_\+\+DATAREFUPDATESTRING}}~\textquotesingle{}9\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a3e1664c2eb354d6bfa9aa34dc93fa561}{XPLCMD\+\_\+\+COMMANDTRIGGER}}~\textquotesingle{}k\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_ad4d1f4418c73a5c2c79fe120ae829dbd}{XPLCMD\+\_\+\+COMMANDSTART}}~\textquotesingle{}i\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a8c32056891723d9c1331ba9c3a3de613}{XPLCMD\+\_\+\+COMMANDEND}}~\textquotesingle{}j\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{_x_p_l_pro_8h_a7addbd630facb7d46f780e734b2a5b4a}{XPL\+\_\+\+EXITING}}~\textquotesingle{}X\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef const char \mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_x_p_l_pro_8h_a419e2b6f4f5a8bd81cd1b9ce30909a80}\label{_x_p_l_pro_8h_a419e2b6f4f5a8bd81cd1b9ce30909a80} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_BAUDRATE@{XPL\_BAUDRATE}}
+\index{XPL\_BAUDRATE@{XPL\_BAUDRATE}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_BAUDRATE}{XPL\_BAUDRATE}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+BAUDRATE~115200}
+
+\Hypertarget{_x_p_l_pro_8h_a7addbd630facb7d46f780e734b2a5b4a}\label{_x_p_l_pro_8h_a7addbd630facb7d46f780e734b2a5b4a} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_EXITING@{XPL\_EXITING}}
+\index{XPL\_EXITING@{XPL\_EXITING}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_EXITING}{XPL\_EXITING}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+EXITING~\textquotesingle{}X\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_ad8a30f2d20569abf12942a6085ca4723}\label{_x_p_l_pro_8h_ad8a30f2d20569abf12942a6085ca4723} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_FLOATPRECISION@{XPL\_FLOATPRECISION}}
+\index{XPL\_FLOATPRECISION@{XPL\_FLOATPRECISION}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_FLOATPRECISION}{XPL\_FLOATPRECISION}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+FLOATPRECISION~4}
+
+\Hypertarget{_x_p_l_pro_8h_a1e47f5b1a3d2b000496c9880f29382cc}\label{_x_p_l_pro_8h_a1e47f5b1a3d2b000496c9880f29382cc} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_HANDLE\_INVALID@{XPL\_HANDLE\_INVALID}}
+\index{XPL\_HANDLE\_INVALID@{XPL\_HANDLE\_INVALID}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_HANDLE\_INVALID}{XPL\_HANDLE\_INVALID}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+HANDLE\+\_\+\+INVALID~-\/1}
+
+\Hypertarget{_x_p_l_pro_8h_a86dab4acb464e5fd98c44abcef0413ad}\label{_x_p_l_pro_8h_a86dab4acb464e5fd98c44abcef0413ad} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_PACKETHEADER@{XPL\_PACKETHEADER}}
+\index{XPL\_PACKETHEADER@{XPL\_PACKETHEADER}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_PACKETHEADER}{XPL\_PACKETHEADER}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+PACKETHEADER~\textquotesingle{}\mbox{[}\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a376a2e9601f1604638c7b6f04d48edf2}\label{_x_p_l_pro_8h_a376a2e9601f1604638c7b6f04d48edf2} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_PACKETTRAILER@{XPL\_PACKETTRAILER}}
+\index{XPL\_PACKETTRAILER@{XPL\_PACKETTRAILER}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_PACKETTRAILER}{XPL\_PACKETTRAILER}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+PACKETTRAILER~\textquotesingle{}\mbox{]}\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a2b969dceda2a00f959e1b635c65cc4e3}\label{_x_p_l_pro_8h_a2b969dceda2a00f959e1b635c65cc4e3} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_RESPONSE\_TIMEOUT@{XPL\_RESPONSE\_TIMEOUT}}
+\index{XPL\_RESPONSE\_TIMEOUT@{XPL\_RESPONSE\_TIMEOUT}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_RESPONSE\_TIMEOUT}{XPL\_RESPONSE\_TIMEOUT}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+RESPONSE\+\_\+\+TIMEOUT~90000}
+
+\Hypertarget{_x_p_l_pro_8h_ad6944bb055a4cb10e7f80cf622fff783}\label{_x_p_l_pro_8h_ad6944bb055a4cb10e7f80cf622fff783} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_RX\_TIMEOUT@{XPL\_RX\_TIMEOUT}}
+\index{XPL\_RX\_TIMEOUT@{XPL\_RX\_TIMEOUT}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_RX\_TIMEOUT}{XPL\_RX\_TIMEOUT}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+RX\+\_\+\+TIMEOUT~500}
+
+\Hypertarget{_x_p_l_pro_8h_ade375bc8e35fdd37b3e80ea62bf27055}\label{_x_p_l_pro_8h_ade375bc8e35fdd37b3e80ea62bf27055} 
+\index{XPLPro.h@{XPLPro.h}!XPL\_USE\_PROGMEM@{XPL\_USE\_PROGMEM}}
+\index{XPL\_USE\_PROGMEM@{XPL\_USE\_PROGMEM}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPL\_USE\_PROGMEM}{XPL\_USE\_PROGMEM}}
+{\footnotesize\ttfamily \#define XPL\+\_\+\+USE\+\_\+\+PROGMEM~0}
+
+\Hypertarget{_x_p_l_pro_8h_a8c32056891723d9c1331ba9c3a3de613}\label{_x_p_l_pro_8h_a8c32056891723d9c1331ba9c3a3de613} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_COMMANDEND@{XPLCMD\_COMMANDEND}}
+\index{XPLCMD\_COMMANDEND@{XPLCMD\_COMMANDEND}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_COMMANDEND}{XPLCMD\_COMMANDEND}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+COMMANDEND~\textquotesingle{}j\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_ad4d1f4418c73a5c2c79fe120ae829dbd}\label{_x_p_l_pro_8h_ad4d1f4418c73a5c2c79fe120ae829dbd} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_COMMANDSTART@{XPLCMD\_COMMANDSTART}}
+\index{XPLCMD\_COMMANDSTART@{XPLCMD\_COMMANDSTART}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_COMMANDSTART}{XPLCMD\_COMMANDSTART}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+COMMANDSTART~\textquotesingle{}i\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a3e1664c2eb354d6bfa9aa34dc93fa561}\label{_x_p_l_pro_8h_a3e1664c2eb354d6bfa9aa34dc93fa561} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_COMMANDTRIGGER@{XPLCMD\_COMMANDTRIGGER}}
+\index{XPLCMD\_COMMANDTRIGGER@{XPLCMD\_COMMANDTRIGGER}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_COMMANDTRIGGER}{XPLCMD\_COMMANDTRIGGER}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+COMMANDTRIGGER~\textquotesingle{}k\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_ae02fa2d3b0031e7601b087a66696c207}\label{_x_p_l_pro_8h_ae02fa2d3b0031e7601b087a66696c207} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_DATAREFUPDATEFLOAT@{XPLCMD\_DATAREFUPDATEFLOAT}}
+\index{XPLCMD\_DATAREFUPDATEFLOAT@{XPLCMD\_DATAREFUPDATEFLOAT}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_DATAREFUPDATEFLOAT}{XPLCMD\_DATAREFUPDATEFLOAT}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+DATAREFUPDATEFLOAT~\textquotesingle{}2\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a3a79b5e89f3d634fd27936a33f9beb24}\label{_x_p_l_pro_8h_a3a79b5e89f3d634fd27936a33f9beb24} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_DATAREFUPDATEFLOATARRAY@{XPLCMD\_DATAREFUPDATEFLOATARRAY}}
+\index{XPLCMD\_DATAREFUPDATEFLOATARRAY@{XPLCMD\_DATAREFUPDATEFLOATARRAY}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_DATAREFUPDATEFLOATARRAY}{XPLCMD\_DATAREFUPDATEFLOATARRAY}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+DATAREFUPDATEFLOATARRAY~\textquotesingle{}4\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a3201d22ca41851f7c56dafc40cb468ba}\label{_x_p_l_pro_8h_a3201d22ca41851f7c56dafc40cb468ba} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_DATAREFUPDATEINT@{XPLCMD\_DATAREFUPDATEINT}}
+\index{XPLCMD\_DATAREFUPDATEINT@{XPLCMD\_DATAREFUPDATEINT}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_DATAREFUPDATEINT}{XPLCMD\_DATAREFUPDATEINT}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+DATAREFUPDATEINT~\textquotesingle{}1\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a09244fa709120c946ed6b46d301f91fa}\label{_x_p_l_pro_8h_a09244fa709120c946ed6b46d301f91fa} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_DATAREFUPDATEINTARRAY@{XPLCMD\_DATAREFUPDATEINTARRAY}}
+\index{XPLCMD\_DATAREFUPDATEINTARRAY@{XPLCMD\_DATAREFUPDATEINTARRAY}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_DATAREFUPDATEINTARRAY}{XPLCMD\_DATAREFUPDATEINTARRAY}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+DATAREFUPDATEINTARRAY~\textquotesingle{}3\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_aacc3a528d3a3c8eb1e14a4d8aaf471a8}\label{_x_p_l_pro_8h_aacc3a528d3a3c8eb1e14a4d8aaf471a8} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_DATAREFUPDATESTRING@{XPLCMD\_DATAREFUPDATESTRING}}
+\index{XPLCMD\_DATAREFUPDATESTRING@{XPLCMD\_DATAREFUPDATESTRING}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_DATAREFUPDATESTRING}{XPLCMD\_DATAREFUPDATESTRING}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+DATAREFUPDATESTRING~\textquotesingle{}9\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a435a26bec5cf2feba097ec08767ad832}\label{_x_p_l_pro_8h_a435a26bec5cf2feba097ec08767ad832} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_FLIGHTLOOPPAUSE@{XPLCMD\_FLIGHTLOOPPAUSE}}
+\index{XPLCMD\_FLIGHTLOOPPAUSE@{XPLCMD\_FLIGHTLOOPPAUSE}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_FLIGHTLOOPPAUSE}{XPLCMD\_FLIGHTLOOPPAUSE}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+FLIGHTLOOPPAUSE~\textquotesingle{}p\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a55f0a7c5eafaebd0c8649c131d9fd5ce}\label{_x_p_l_pro_8h_a55f0a7c5eafaebd0c8649c131d9fd5ce} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_FLIGHTLOOPRESUME@{XPLCMD\_FLIGHTLOOPRESUME}}
+\index{XPLCMD\_FLIGHTLOOPRESUME@{XPLCMD\_FLIGHTLOOPRESUME}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_FLIGHTLOOPRESUME}{XPLCMD\_FLIGHTLOOPRESUME}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+FLIGHTLOOPRESUME~\textquotesingle{}q\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a73dfb0ad25c604300a69bf7edce2e51c}\label{_x_p_l_pro_8h_a73dfb0ad25c604300a69bf7edce2e51c} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_PRINTDEBUG@{XPLCMD\_PRINTDEBUG}}
+\index{XPLCMD\_PRINTDEBUG@{XPLCMD\_PRINTDEBUG}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_PRINTDEBUG}{XPLCMD\_PRINTDEBUG}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+PRINTDEBUG~\textquotesingle{}g\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_aada40df2e99b6c6288d8ef1879f281db}\label{_x_p_l_pro_8h_aada40df2e99b6c6288d8ef1879f281db} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_RESET@{XPLCMD\_RESET}}
+\index{XPLCMD\_RESET@{XPLCMD\_RESET}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_RESET}{XPLCMD\_RESET}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+RESET~\textquotesingle{}z\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a77630ec1b5eddcc7c5256a37509ae1e2}\label{_x_p_l_pro_8h_a77630ec1b5eddcc7c5256a37509ae1e2} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_SENDNAME@{XPLCMD\_SENDNAME}}
+\index{XPLCMD\_SENDNAME@{XPLCMD\_SENDNAME}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_SENDNAME}{XPLCMD\_SENDNAME}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+SENDNAME~\textquotesingle{}N\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a5125543319bd00f46771dc697404123b}\label{_x_p_l_pro_8h_a5125543319bd00f46771dc697404123b} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_SENDREQUEST@{XPLCMD\_SENDREQUEST}}
+\index{XPLCMD\_SENDREQUEST@{XPLCMD\_SENDREQUEST}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_SENDREQUEST}{XPLCMD\_SENDREQUEST}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+SENDREQUEST~\textquotesingle{}Q\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a622731b7de671c628b851513e8a8c336}\label{_x_p_l_pro_8h_a622731b7de671c628b851513e8a8c336} 
+\index{XPLPro.h@{XPLPro.h}!XPLCMD\_SPEAK@{XPLCMD\_SPEAK}}
+\index{XPLCMD\_SPEAK@{XPLCMD\_SPEAK}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLCMD\_SPEAK}{XPLCMD\_SPEAK}}
+{\footnotesize\ttfamily \#define XPLCMD\+\_\+\+SPEAK~\textquotesingle{}s\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a9b7df8b1a3379823b154785211b0a582}\label{_x_p_l_pro_8h_a9b7df8b1a3379823b154785211b0a582} 
+\index{XPLPro.h@{XPLPro.h}!XPLMAX\_PACKETSIZE\_RECEIVE@{XPLMAX\_PACKETSIZE\_RECEIVE}}
+\index{XPLMAX\_PACKETSIZE\_RECEIVE@{XPLMAX\_PACKETSIZE\_RECEIVE}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLMAX\_PACKETSIZE\_RECEIVE}{XPLMAX\_PACKETSIZE\_RECEIVE}}
+{\footnotesize\ttfamily \#define XPLMAX\+\_\+\+PACKETSIZE\+\_\+\+RECEIVE~200}
+
+\Hypertarget{_x_p_l_pro_8h_ada0075933130c660e99c739c73677ddf}\label{_x_p_l_pro_8h_ada0075933130c660e99c739c73677ddf} 
+\index{XPLPro.h@{XPLPro.h}!XPLMAX\_PACKETSIZE\_TRANSMIT@{XPLMAX\_PACKETSIZE\_TRANSMIT}}
+\index{XPLMAX\_PACKETSIZE\_TRANSMIT@{XPLMAX\_PACKETSIZE\_TRANSMIT}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLMAX\_PACKETSIZE\_TRANSMIT}{XPLMAX\_PACKETSIZE\_TRANSMIT}}
+{\footnotesize\ttfamily \#define XPLMAX\+\_\+\+PACKETSIZE\+\_\+\+TRANSMIT~200}
+
+\Hypertarget{_x_p_l_pro_8h_ad70fdbe6e42376a33ff3100abb01be40}\label{_x_p_l_pro_8h_ad70fdbe6e42376a33ff3100abb01be40} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_DATAREFVALUE@{XPLREQUEST\_DATAREFVALUE}}
+\index{XPLREQUEST\_DATAREFVALUE@{XPLREQUEST\_DATAREFVALUE}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_DATAREFVALUE}{XPLREQUEST\_DATAREFVALUE}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+DATAREFVALUE~\textquotesingle{}e\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a1a5c10f0ae344f2fae79d98591c1e2ea}\label{_x_p_l_pro_8h_a1a5c10f0ae344f2fae79d98591c1e2ea} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_REGISTERCOMMAND@{XPLREQUEST\_REGISTERCOMMAND}}
+\index{XPLREQUEST\_REGISTERCOMMAND@{XPLREQUEST\_REGISTERCOMMAND}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_REGISTERCOMMAND}{XPLREQUEST\_REGISTERCOMMAND}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+REGISTERCOMMAND~\textquotesingle{}m\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_acff98b3d4930a1fbda307a77b06a2b07}\label{_x_p_l_pro_8h_acff98b3d4930a1fbda307a77b06a2b07} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_REGISTERDATAREF@{XPLREQUEST\_REGISTERDATAREF}}
+\index{XPLREQUEST\_REGISTERDATAREF@{XPLREQUEST\_REGISTERDATAREF}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_REGISTERDATAREF}{XPLREQUEST\_REGISTERDATAREF}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+REGISTERDATAREF~\textquotesingle{}b\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_ac8165a3be4e76a7299899098148f1d40}\label{_x_p_l_pro_8h_ac8165a3be4e76a7299899098148f1d40} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_SCALING@{XPLREQUEST\_SCALING}}
+\index{XPLREQUEST\_SCALING@{XPLREQUEST\_SCALING}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_SCALING}{XPLREQUEST\_SCALING}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+SCALING~\textquotesingle{}u\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_ac3a2a58361587611ed4d35ee560298dc}\label{_x_p_l_pro_8h_ac3a2a58361587611ed4d35ee560298dc} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_UPDATES@{XPLREQUEST\_UPDATES}}
+\index{XPLREQUEST\_UPDATES@{XPLREQUEST\_UPDATES}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_UPDATES}{XPLREQUEST\_UPDATES}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+UPDATES~\textquotesingle{}r\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a4b3c0454160dc1fc798f8f95041ab901}\label{_x_p_l_pro_8h_a4b3c0454160dc1fc798f8f95041ab901} 
+\index{XPLPro.h@{XPLPro.h}!XPLREQUEST\_UPDATESARRAY@{XPLREQUEST\_UPDATESARRAY}}
+\index{XPLREQUEST\_UPDATESARRAY@{XPLREQUEST\_UPDATESARRAY}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLREQUEST\_UPDATESARRAY}{XPLREQUEST\_UPDATESARRAY}}
+{\footnotesize\ttfamily \#define XPLREQUEST\+\_\+\+UPDATESARRAY~\textquotesingle{}t\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_acccfb1298ec3a6c81922cbb749fa2625}\label{_x_p_l_pro_8h_acccfb1298ec3a6c81922cbb749fa2625} 
+\index{XPLPro.h@{XPLPro.h}!XPLRESPONSE\_COMMAND@{XPLRESPONSE\_COMMAND}}
+\index{XPLRESPONSE\_COMMAND@{XPLRESPONSE\_COMMAND}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLRESPONSE\_COMMAND}{XPLRESPONSE\_COMMAND}}
+{\footnotesize\ttfamily \#define XPLRESPONSE\+\_\+\+COMMAND~\textquotesingle{}C\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_a5beaa80933dc3e1814c1a07a8aaba801}\label{_x_p_l_pro_8h_a5beaa80933dc3e1814c1a07a8aaba801} 
+\index{XPLPro.h@{XPLPro.h}!XPLRESPONSE\_DATAREF@{XPLRESPONSE\_DATAREF}}
+\index{XPLRESPONSE\_DATAREF@{XPLRESPONSE\_DATAREF}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLRESPONSE\_DATAREF}{XPLRESPONSE\_DATAREF}}
+{\footnotesize\ttfamily \#define XPLRESPONSE\+\_\+\+DATAREF~\textquotesingle{}D\textquotesingle{}}
+
+\Hypertarget{_x_p_l_pro_8h_abdb15067ad3c08510ece4a70af198676}\label{_x_p_l_pro_8h_abdb15067ad3c08510ece4a70af198676} 
+\index{XPLPro.h@{XPLPro.h}!XPLRESPONSE\_NAME@{XPLRESPONSE\_NAME}}
+\index{XPLRESPONSE\_NAME@{XPLRESPONSE\_NAME}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPLRESPONSE\_NAME}{XPLRESPONSE\_NAME}}
+{\footnotesize\ttfamily \#define XPLRESPONSE\+\_\+\+NAME~\textquotesingle{}n\textquotesingle{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}\label{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478} 
+\index{XPLPro.h@{XPLPro.h}!XPString\_t@{XPString\_t}}
+\index{XPString\_t@{XPString\_t}!XPLPro.h@{XPLPro.h}}
+\doxysubsubsection{\texorpdfstring{XPString\_t}{XPString\_t}}
+{\footnotesize\ttfamily typedef const char \mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}}}
+

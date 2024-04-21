@@ -1,0 +1,78 @@
+\doxysection{Av\+Button Class Reference}
+\hypertarget{class_av_button}{}\label{class_av_button}\index{AvButton@{AvButton}}
+
+
+{\ttfamily \#include $<$Av\+Classes.\+h$>$}
+
+Inheritance diagram for Av\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_av_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_button_acfc89e46f5d02846f341b28944f68fc8}{Av\+Button}} (int pin, void(\texorpdfstring{$\ast$}{*}callback)(int))
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_digital_pullup}{Av\+Digital\+Pullup}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_digital_pullup_a30a18363d3c8cfe693a5fd926697a5ca}{Av\+Digital\+Pullup}} (int pin, void(\texorpdfstring{$\ast$}{*}callback)(int))
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_digital_pin}{Av\+Digital\+Pin}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_digital_pin_a5533de65b73415ac51b63bd2ca0376e4}{Av\+Digital\+Pin}} (int pin, int mode)
+\item 
+virtual char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_av_digital_pin_a23a7c9dfecf05beeff1de2723b14659b}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_class}{Av\+Class}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_av_class_a95d2c9c6850e5369ec6a000465214ad9}{read}} (bool force)
+\item 
+virtual void \mbox{\hyperlink{class_av_class_a8f8bb9f29252c7d8000fea7f50075c1e}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_pin_able_a1818274a7ff15623dbd6d4e519e5d547}{Av\+Pin\+Able}} (int pin)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_a3ac138e874f18ac66db93b0eb5d046d4}{get\+Pin}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_callback_able}{Av\+Callback\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_callback_able_a7a33f6b5ff59b10df15519712749c5c3}{Av\+Callback\+Able}} (void(\texorpdfstring{$\ast$}{*}callback)(int))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_av_callback_able}{Av\+Callback\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_av_callback_able_a8150fd11e9c28bbc04affd10b392981d}{call\+Callback}} (int value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\+\_\+pin}}
+\item 
+int \mbox{\hyperlink{class_av_pin_able_a80bde329d0072c7b2072f1eb1d8117eb}{\+\_\+last\+Value}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a class definition for single buton or switch 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_av_button_acfc89e46f5d02846f341b28944f68fc8}\label{class_av_button_acfc89e46f5d02846f341b28944f68fc8} 
+\index{AvButton@{AvButton}!AvButton@{AvButton}}
+\index{AvButton@{AvButton}!AvButton@{AvButton}}
+\doxysubsubsection{\texorpdfstring{AvButton()}{AvButton()}}
+{\footnotesize\ttfamily Av\+Button\+::\+Av\+Button (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{void(\texorpdfstring{$\ast$}{*})(int)}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_av_classes_8h}{Av\+Classes.\+h}}\end{DoxyCompactItemize}

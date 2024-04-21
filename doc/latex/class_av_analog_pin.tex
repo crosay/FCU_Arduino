@@ -1,0 +1,69 @@
+\doxysection{Av\+Analog\+Pin Class Reference}
+\hypertarget{class_av_analog_pin}{}\label{class_av_analog_pin}\index{AvAnalogPin@{AvAnalogPin}}
+
+
+{\ttfamily \#include $<$Av\+Classes.\+h$>$}
+
+Inheritance diagram for Av\+Analog\+Pin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_av_analog_pin}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_analog_pin_abfda5c7f5947c0892574e4cb2d23c5bc}{Av\+Analog\+Pin}} (int pin, void(\texorpdfstring{$\ast$}{*}callback)(int))
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_class}{Av\+Class}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_av_class_a95d2c9c6850e5369ec6a000465214ad9}{read}} (bool force)
+\item 
+virtual void \mbox{\hyperlink{class_av_class_a8f8bb9f29252c7d8000fea7f50075c1e}{loop}} ()
+\item 
+virtual char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_av_class_a1d2b652a87e0b792706938a8489e6deb}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_callback_able}{Av\+Callback\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_callback_able_a7a33f6b5ff59b10df15519712749c5c3}{Av\+Callback\+Able}} (void(\texorpdfstring{$\ast$}{*}callback)(int))
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_pin_able_a1818274a7ff15623dbd6d4e519e5d547}{Av\+Pin\+Able}} (int pin)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_a3ac138e874f18ac66db93b0eb5d046d4}{get\+Pin}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_av_callback_able}{Av\+Callback\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_av_callback_able_a8150fd11e9c28bbc04affd10b392981d}{call\+Callback}} (int value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\+\_\+pin}}
+\item 
+int \mbox{\hyperlink{class_av_pin_able_a80bde329d0072c7b2072f1eb1d8117eb}{\+\_\+last\+Value}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a class to manipulate single analog pin 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_av_analog_pin_abfda5c7f5947c0892574e4cb2d23c5bc}\label{class_av_analog_pin_abfda5c7f5947c0892574e4cb2d23c5bc} 
+\index{AvAnalogPin@{AvAnalogPin}!AvAnalogPin@{AvAnalogPin}}
+\index{AvAnalogPin@{AvAnalogPin}!AvAnalogPin@{AvAnalogPin}}
+\doxysubsubsection{\texorpdfstring{AvAnalogPin()}{AvAnalogPin()}}
+{\footnotesize\ttfamily Av\+Analog\+Pin\+::\+Av\+Analog\+Pin (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{void(\texorpdfstring{$\ast$}{*})(int)}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+creator of the class int pin \+: the digital pin on the arduino board 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_av_classes_8h}{Av\+Classes.\+h}}\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_av_classes_8cpp}{Av\+Classes.\+cpp}}\end{DoxyCompactItemize}

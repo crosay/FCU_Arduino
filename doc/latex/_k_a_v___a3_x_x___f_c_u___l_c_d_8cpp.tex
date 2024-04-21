@@ -1,0 +1,186 @@
+\doxysection{C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\+KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.cpp File Reference}
+\hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp}{}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/KAV\_A3XX\_FCU\_LCD.cpp@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/KAV\_A3XX\_FCU\_LCD.cpp}}
+{\ttfamily \#include "{}KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aaea54d9f134433a816f28ec5c363711f}{SPD\+\_\+\+HUN}}~0
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a9b2cf709a6782b82b8d8595352656088}{SPD\+\_\+\+TEN}}~1
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae3f3795cc83199bffbc470949d036b75}{SPD\+\_\+\+UNIT}}~2
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a4235bceac1a80369b26a5ce2bca92f7f}{HDG\+\_\+\+HUN}}~3
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a8495d308111574ac81a9b41e2b577248}{HDG\+\_\+\+TEN}}~4
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2493cad0f9db596c93d7a18ef95c8754}{HDG\+\_\+\+UNIT}}~5
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad10914e58dca9c06d7a0bee8ed247afd}{ALT\+\_\+\+TTH}}~6
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad96ff0a59aceb68fce937a9b07ef31cc}{ALT\+\_\+\+THO}}~7
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae163b867a48caaf2df7bb5c4986891f0}{ALT\+\_\+\+HUN}}~8
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a056d93020e9564d2f1aae77d8e66369a}{ALT\+\_\+\+TEN}}~9
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a615aa98e3f25cd7302c4df31a3c664de}{ALT\+\_\+\+UNIT}}~10
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a6d8eef616c44e6a3dfd523ff547ccc0c}{VRT\+\_\+\+THO}}~11
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae281c0c02665495ddb06716ee00b05e6}{VRT\+\_\+\+HUN}}~12
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aa7b143f2770a88ab9667fbb6ceeefbbb}{VRT\+\_\+\+TEN}}~13
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_affeddc8904e2538e221e1bdf82b2853d}{VRT\+\_\+\+UNIT}}~14
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2e1ba74d2e5a4b6bdb7e2b1d00f4f4c0}{SPECIALS}}~15
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ab0ebccee7a385037b1bc3d6bd73b913a}{SET\+\_\+\+BUFF\+\_\+\+BITS}}(addr,  bit\+Mask,  enabled\+Mask)~buffer\mbox{[}addr\mbox{]} = (buffer\mbox{[}addr\mbox{]} \& (\texorpdfstring{$\sim$}{\string~}(bit\+Mask))) \texorpdfstring{$\vert$}{|} (enabled\+Mask)
+\item 
+\#define \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad0135edd4d83b3faa2324107d6fb9c3c}{SET\+\_\+\+BUFF\+\_\+\+BIT}}(addr,  bit,  enabled)~buffer\mbox{[}addr\mbox{]} = (buffer\mbox{[}addr\mbox{]} \& (\texorpdfstring{$\sim$}{\string~}(1$<$$<$(bit)))) \texorpdfstring{$\vert$}{|} (((enabled\&1))$<$$<$(bit))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a978c7b8424879d2278c41b62a7530b75}{digit\+Pattern\+FCU}} \mbox{[}13\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae163b867a48caaf2df7bb5c4986891f0}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae163b867a48caaf2df7bb5c4986891f0} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!ALT\_HUN@{ALT\_HUN}}
+\index{ALT\_HUN@{ALT\_HUN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{ALT\_HUN}{ALT\_HUN}}
+{\footnotesize\ttfamily \#define ALT\+\_\+\+HUN~8}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a056d93020e9564d2f1aae77d8e66369a}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a056d93020e9564d2f1aae77d8e66369a} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!ALT\_TEN@{ALT\_TEN}}
+\index{ALT\_TEN@{ALT\_TEN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{ALT\_TEN}{ALT\_TEN}}
+{\footnotesize\ttfamily \#define ALT\+\_\+\+TEN~9}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad96ff0a59aceb68fce937a9b07ef31cc}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad96ff0a59aceb68fce937a9b07ef31cc} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!ALT\_THO@{ALT\_THO}}
+\index{ALT\_THO@{ALT\_THO}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{ALT\_THO}{ALT\_THO}}
+{\footnotesize\ttfamily \#define ALT\+\_\+\+THO~7}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad10914e58dca9c06d7a0bee8ed247afd}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad10914e58dca9c06d7a0bee8ed247afd} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!ALT\_TTH@{ALT\_TTH}}
+\index{ALT\_TTH@{ALT\_TTH}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{ALT\_TTH}{ALT\_TTH}}
+{\footnotesize\ttfamily \#define ALT\+\_\+\+TTH~6}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a615aa98e3f25cd7302c4df31a3c664de}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a615aa98e3f25cd7302c4df31a3c664de} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!ALT\_UNIT@{ALT\_UNIT}}
+\index{ALT\_UNIT@{ALT\_UNIT}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{ALT\_UNIT}{ALT\_UNIT}}
+{\footnotesize\ttfamily \#define ALT\+\_\+\+UNIT~10}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a4235bceac1a80369b26a5ce2bca92f7f}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a4235bceac1a80369b26a5ce2bca92f7f} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!HDG\_HUN@{HDG\_HUN}}
+\index{HDG\_HUN@{HDG\_HUN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_HUN}{HDG\_HUN}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+HUN~3}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a8495d308111574ac81a9b41e2b577248}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a8495d308111574ac81a9b41e2b577248} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!HDG\_TEN@{HDG\_TEN}}
+\index{HDG\_TEN@{HDG\_TEN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_TEN}{HDG\_TEN}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+TEN~4}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2493cad0f9db596c93d7a18ef95c8754}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2493cad0f9db596c93d7a18ef95c8754} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!HDG\_UNIT@{HDG\_UNIT}}
+\index{HDG\_UNIT@{HDG\_UNIT}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{HDG\_UNIT}{HDG\_UNIT}}
+{\footnotesize\ttfamily \#define HDG\+\_\+\+UNIT~5}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad0135edd4d83b3faa2324107d6fb9c3c}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ad0135edd4d83b3faa2324107d6fb9c3c} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SET\_BUFF\_BIT@{SET\_BUFF\_BIT}}
+\index{SET\_BUFF\_BIT@{SET\_BUFF\_BIT}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SET\_BUFF\_BIT}{SET\_BUFF\_BIT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BUFF\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{bit,  }\item[{}]{enabled }\end{DoxyParamCaption})~buffer\mbox{[}addr\mbox{]} = (buffer\mbox{[}addr\mbox{]} \& (\texorpdfstring{$\sim$}{\string~}(1$<$$<$(bit)))) \texorpdfstring{$\vert$}{|} (((enabled\&1))$<$$<$(bit))}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ab0ebccee7a385037b1bc3d6bd73b913a}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ab0ebccee7a385037b1bc3d6bd73b913a} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SET\_BUFF\_BITS@{SET\_BUFF\_BITS}}
+\index{SET\_BUFF\_BITS@{SET\_BUFF\_BITS}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SET\_BUFF\_BITS}{SET\_BUFF\_BITS}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BUFF\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{bit\+Mask,  }\item[{}]{enabled\+Mask }\end{DoxyParamCaption})~buffer\mbox{[}addr\mbox{]} = (buffer\mbox{[}addr\mbox{]} \& (\texorpdfstring{$\sim$}{\string~}(bit\+Mask))) \texorpdfstring{$\vert$}{|} (enabled\+Mask)}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aaea54d9f134433a816f28ec5c363711f}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aaea54d9f134433a816f28ec5c363711f} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SPD\_HUN@{SPD\_HUN}}
+\index{SPD\_HUN@{SPD\_HUN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SPD\_HUN}{SPD\_HUN}}
+{\footnotesize\ttfamily \#define SPD\+\_\+\+HUN~0}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a9b2cf709a6782b82b8d8595352656088}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a9b2cf709a6782b82b8d8595352656088} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SPD\_TEN@{SPD\_TEN}}
+\index{SPD\_TEN@{SPD\_TEN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SPD\_TEN}{SPD\_TEN}}
+{\footnotesize\ttfamily \#define SPD\+\_\+\+TEN~1}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae3f3795cc83199bffbc470949d036b75}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae3f3795cc83199bffbc470949d036b75} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SPD\_UNIT@{SPD\_UNIT}}
+\index{SPD\_UNIT@{SPD\_UNIT}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SPD\_UNIT}{SPD\_UNIT}}
+{\footnotesize\ttfamily \#define SPD\+\_\+\+UNIT~2}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2e1ba74d2e5a4b6bdb7e2b1d00f4f4c0}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a2e1ba74d2e5a4b6bdb7e2b1d00f4f4c0} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!SPECIALS@{SPECIALS}}
+\index{SPECIALS@{SPECIALS}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{SPECIALS}{SPECIALS}}
+{\footnotesize\ttfamily \#define SPECIALS~15}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae281c0c02665495ddb06716ee00b05e6}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_ae281c0c02665495ddb06716ee00b05e6} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!VRT\_HUN@{VRT\_HUN}}
+\index{VRT\_HUN@{VRT\_HUN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{VRT\_HUN}{VRT\_HUN}}
+{\footnotesize\ttfamily \#define VRT\+\_\+\+HUN~12}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aa7b143f2770a88ab9667fbb6ceeefbbb}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_aa7b143f2770a88ab9667fbb6ceeefbbb} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!VRT\_TEN@{VRT\_TEN}}
+\index{VRT\_TEN@{VRT\_TEN}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{VRT\_TEN}{VRT\_TEN}}
+{\footnotesize\ttfamily \#define VRT\+\_\+\+TEN~13}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a6d8eef616c44e6a3dfd523ff547ccc0c}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a6d8eef616c44e6a3dfd523ff547ccc0c} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!VRT\_THO@{VRT\_THO}}
+\index{VRT\_THO@{VRT\_THO}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{VRT\_THO}{VRT\_THO}}
+{\footnotesize\ttfamily \#define VRT\+\_\+\+THO~11}
+
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_affeddc8904e2538e221e1bdf82b2853d}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_affeddc8904e2538e221e1bdf82b2853d} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!VRT\_UNIT@{VRT\_UNIT}}
+\index{VRT\_UNIT@{VRT\_UNIT}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{VRT\_UNIT}{VRT\_UNIT}}
+{\footnotesize\ttfamily \#define VRT\+\_\+\+UNIT~14}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a978c7b8424879d2278c41b62a7530b75}\label{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp_a978c7b8424879d2278c41b62a7530b75} 
+\index{KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}!digitPatternFCU@{digitPatternFCU}}
+\index{digitPatternFCU@{digitPatternFCU}!KAV\_A3XX\_FCU\_LCD.cpp@{KAV\_A3XX\_FCU\_LCD.cpp}}
+\doxysubsubsection{\texorpdfstring{digitPatternFCU}{digitPatternFCU}}
+{\footnotesize\ttfamily uint8\+\_\+t digit\+Pattern\+FCU\mbox{[}13\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ 0b11111010,\ }
+\DoxyCodeLine{\ \ 0b01100000,\ }
+\DoxyCodeLine{\ \ 0b10111100,\ }
+\DoxyCodeLine{\ \ 0b11110100,\ }
+\DoxyCodeLine{\ \ 0b01100110,\ }
+\DoxyCodeLine{\ \ 0b11010110,\ }
+\DoxyCodeLine{\ \ 0b11011110,\ }
+\DoxyCodeLine{\ \ 0b01110000,\ }
+\DoxyCodeLine{\ \ 0b11111110,\ }
+\DoxyCodeLine{\ \ 0b11110110,\ }
+\DoxyCodeLine{\ \ 0b00000100,\ }
+\DoxyCodeLine{\ \ 0b00000000,\ }
+\DoxyCodeLine{\ \ 0b11001100,\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

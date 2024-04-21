@@ -1,0 +1,200 @@
+\doxysection{XPLPro.\+h}
+\hypertarget{_x_p_l_pro_8h_source}{}\label{_x_p_l_pro_8h_source}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/XPLPro.h@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/XPLPro.h}}
+\mbox{\hyperlink{_x_p_l_pro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ \ \ XPLPro.h\ -\/\ Library\ for\ serial\ interface\ to\ Xplane\ SDK.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ Created\ by\ Curiosity\ Workshop,\ Michael\ Gerlicher,\ \ 2020-\/2023}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ See\ readme.txt\ file\ for\ information\ on\ updates.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ To\ report\ problems,\ download\ updates\ and\ examples,\ suggest\ enhancements\ or\ get\ technical\ support,\ please\ visit:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ \ \ \ \ discord:\ \ https://discord.gg/gzXetjEST4}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ patreon:\ \ www.patreon.com/curiosityworkshop}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ XPLPro\_h}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ XPLPro\_h}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Parameters\ that\ can\ be\ overwritten\ by\ command\ line\ defines}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Decimals\ of\ precision\ for\ floating\ point\ datarefs.\ More\ increases\ dataflow\ (default\ 4)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ XPL\_FLOATPRECISION}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ XPL\_FLOATPRECISION\ 4}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Timeout\ after\ sending\ a\ registration\ request,\ how\ long\ will\ we\ wait\ for\ the\ response.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ This\ is\ giant\ because\ sometimes\ xplane\ says\ the\ plane\ is\ loaded\ then\ does\ other\ stuff\ for\ a\ while.\ (default\ 90000\ ms)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XPL\_RESPONSE\_TIMEOUT}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XPL\_RESPONSE\_TIMEOUT\ 90000}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ For\ boards\ with\ limited\ memory\ that\ can\ use\ PROGMEM\ to\ store\ strings.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ You\ will\ need\ to\ wrap\ your\ dataref\ names\ with\ F()\ macro\ ie:}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ Xinterface.registerDataref(F("{}laminar/B738/annunciator/drive2"{}),\ XPL\_READ,\ 100,\ 0,\ \&drive2);}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Disable\ for\ boards\ that\ have\ issues\ compiling:\ errors\ with\ strncmp\_PF\ for\ instance.}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ XPL\_USE\_PROGMEM}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifdef\ \_\_AVR\_ARCH\_\_}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ flash\ strings\ are\ default\ on\ on\ AVR\ architecture}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ XPL\_USE\_PROGMEM\ 1}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ and\ off\ otherwise}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ XPL\_USE\_PROGMEM\ 0}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <avr/dtostrf.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ needed\ for\ non-\/AVR\ boards\ to\ include\ the\ dtostrf\ function}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Package\ buffer\ size\ for\ send\ and\ receive\ buffer\ each.}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ If\ you\ need\ a\ few\ extra\ bytes\ of\ RAM\ it\ could\ be\ reduced,\ but\ it\ needs\ to}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ be\ as\ long\ as\ the\ longest\ dataref\ name\ +\ 10.\ \ If\ you\ are\ using\ datarefs}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ that\ transfer\ strings\ it\ needs\ to\ be\ big\ enough\ for\ those\ too.\ \ (default\ 200)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ XPLMAX\_PACKETSIZE\_TRANSMIT}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ XPLMAX\_PACKETSIZE\_TRANSMIT\ 200}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifndef\ XPLMAX\_PACKETSIZE\_RECEIVE}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ XPLMAX\_PACKETSIZE\_RECEIVE\ 200}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ All\ other\ defines\ in\ this\ header\ must\ not\ be\ modified}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ define\ whether\ flash\ strings\ will\ be\ used}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#if\ XPL\_USE\_PROGMEM}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ use\ Flash\ for\ strings,\ requires\ F()\ macro\ for\ strings\ in\ all\ registration\ calls}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \_\_FlashStringHelper\ \mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\_t}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\_t}};}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ Parameters\ around\ the\ interface}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ XPL\_BAUDRATE\ 115200\ \ \ }\textcolor{comment}{//\ Baudrate\ needed\ to\ match\ plugin}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ XPL\_RX\_TIMEOUT\ 500\ \ \ \ }\textcolor{comment}{//\ Timeout\ for\ reception\ of\ one\ frame}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ XPL\_PACKETHEADER\ '['\ \ }\textcolor{comment}{//\ Frame\ start\ character}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ XPL\_PACKETTRAILER\ ']'\ }\textcolor{comment}{//\ Frame\ end\ character}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ XPL\_HANDLE\_INVALID\ -\/1\ }\textcolor{comment}{//\ invalid\ handle}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ Items\ in\ caps\ generally\ come\ from\ XPlane.\ Items\ in\ lower\ case\ are\ generally\ sent\ from\ the\ arduino.}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ XPLCMD\_SENDNAME\ 'N'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ plugin\ request\ name\ from\ arduino}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ XPLRESPONSE\_NAME\ 'n'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Arduino\ responds\ with\ device\ name\ as\ initialized\ in\ the\ "{}begin"{}\ function}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ XPLCMD\_SENDREQUEST\ 'Q'\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ plugin\ sends\ this\ when\ it\ is\ ready\ to\ register\ bindings}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ XPLCMD\_FLIGHTLOOPPAUSE\ \ \ \ \ \ 'p'\ \ \ \ \ }\textcolor{comment}{//\ stop\ flight\ loop\ while\ we\ register}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ XPLCMD\_FLIGHTLOOPRESUME\ \ \ \ \ 'q'\ \ \ \ \ }\textcolor{comment}{//\ }}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_REGISTERDATAREF\ 'b'\ \ \ \ \ }\textcolor{comment}{//\ Register\ a\ dataref}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_REGISTERCOMMAND\ 'm'\ \ \ \ \ }\textcolor{comment}{//\ Register\ a\ command}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ XPLRESPONSE\_DATAREF\ 'D'\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Plugin\ responds\ with\ handle\ to\ dataref\ or\ -\/\ value\ if\ not\ found.\ \ dataref\ handle,\ dataref\ name}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ XPLRESPONSE\_COMMAND\ 'C'\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Plugin\ responds\ with\ handle\ to\ command\ or\ -\/\ value\ if\ not\ found.\ \ command\ handle,\ command\ name}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ XPLCMD\_PRINTDEBUG\ 'g'\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Plugin\ logs\ string\ sent\ from\ arduino}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ XPLCMD\_SPEAK\ 's'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ plugin\ speaks\ string\ through\ xplane\ speech}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\#define\ XPLREQUEST\_REFRESH\ 'd'\ \ \ \ \ \ \ \ \ \ \ \ \ //\ the\ plugin\ will\ call\ this\ once\ xplane\ is\ loaded\ in\ order\ to\ get\ fresh\ updates\ from\ arduino\ handles\ that\ write\ (reserve\ until\ we\ are\ sure\ it\ is\ unneeded)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_UPDATES\ 'r'\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ arduino\ is\ asking\ the\ plugin\ to\ update\ the\ specified\ dataref\ with\ rate\ and\ divider\ parameters}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_UPDATESARRAY\ 't'\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ arduino\ is\ asking\ the\ plugin\ to\ update\ the\ specified\ array\ dataref\ with\ rate\ and\ divider\ parameters}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_SCALING\ 'u'\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ arduino\ requests\ the\ plugin\ apply\ scaling\ to\ the\ dataref\ values}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ XPLREQUEST\_DATAREFVALUE\ 'e'\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ one\ off\ request\ for\ a\ dataref\ value.\ \ Avoid\ doing\ this\ every\ loop,\ better\ to\ use\ REQUEST\_UPDATES.\ \ Either\ way,\ value\ will\ be\ sent\ via\ the\ inbound\ callback}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ XPLCMD\_RESET\ 'z'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Request\ a\ reset\ and\ reregistration\ from\ the\ plugin}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ XPLCMD\_DATAREFUPDATEINT\ '1'\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Int\ DataRef\ update}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ XPLCMD\_DATAREFUPDATEFLOAT\ '2'\ \ \ \ \ \ }\textcolor{comment}{//\ Float\ DataRef\ update}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ XPLCMD\_DATAREFUPDATEINTARRAY\ '3'\ \ \ }\textcolor{comment}{//\ Int\ array\ DataRef\ update}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ XPLCMD\_DATAREFUPDATEFLOATARRAY\ '4'\ }\textcolor{comment}{//\ Float\ array\ DataRef\ Update}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ XPLCMD\_DATAREFUPDATESTRING\ '9'\ \ \ \ \ }\textcolor{comment}{//\ String\ DataRef\ update}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ XPLCMD\_COMMANDTRIGGER\ 'k'\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Trigger\ command\ n\ times}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ XPLCMD\_COMMANDSTART\ 'i'\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Begin\ command\ (Button\ pressed)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ XPLCMD\_COMMANDEND\ 'j'\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ End\ command\ (Button\ released)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ XPL\_EXITING\ 'X'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ XPlane\ sends\ this\ to\ the\ arduino\ device\ during\ normal\ shutdown\ of\ XPlane.\ It\ may\ not\ happen\ if\ xplane\ crashes.}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structin_struct}{inStruct}}\ \textcolor{comment}{//\ potentially\ 'class'}}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structin_struct_a934fba465ace41a071e0ef78fca960fc}{handle}};}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structin_struct_a837c4be4581b2b70454e0d1345050de4}{type}};}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structin_struct_ab5243e984029fea362532902a85ec789}{element}};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structin_struct_aa7636f03acdf94273426bbe462d57a29}{inLong}};}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structin_struct_a224f418724a70ba8d7f260ba88d261cc}{inFloat}};}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structin_struct_ab056538c467ec1ad71d5109d73a4beca}{inStr}};}
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_x_p_l_pro}{XPLPro}}}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_x_p_l_pro_a211c545cc0b0301f86f7783cf4cde16d}{XPLPro}}(Stream\ *device);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_a01d70aea23248c651e16771b72ac8b87}{begin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *devicename,\ \textcolor{keywordtype}{void}\ (*initFunction)(\textcolor{keywordtype}{void}),\ \textcolor{keywordtype}{void}\ (*stopFunction)(\textcolor{keywordtype}{void}),\ \textcolor{keywordtype}{void}\ (*inboundHandler)(\mbox{\hyperlink{structin_struct}{inStruct}}\ *));}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a515eb58099de91d85b006fa540fecfc3}{connectionStatus}}();}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867}{commandTrigger}}(\textcolor{keywordtype}{int}\ commandHandle)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867}{commandTrigger}}(commandHandle,\ 1);\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867}{commandTrigger}}(\textcolor{keywordtype}{int}\ commandHandle,\ \textcolor{keywordtype}{int}\ triggerCount);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_ac560289d5a39e8bf6047e986d34fa90f}{commandStart}}(\textcolor{keywordtype}{int}\ commandHandle);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a461d415417e72fe753dde96994f3840d}{commandEnd}}(\textcolor{keywordtype}{int}\ commandHandle);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{long}\ value);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{long}\ value,\ \textcolor{keywordtype}{int}\ arrayElement);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ arrayElement);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{datarefWrite}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ arrayElement);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_acbd3d40a201004706e21c067d349f273}{requestUpdates}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{int}\ rate,\ \textcolor{keywordtype}{float}\ precision);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_acbd3d40a201004706e21c067d349f273}{requestUpdates}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{int}\ rate,\ \textcolor{keywordtype}{float}\ precision,\ \textcolor{keywordtype}{int}\ arrayElement);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_a74b21ad18aef1af39be93c46011a2226}{setScaling}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{int}\ inLow,\ \textcolor{keywordtype}{int}\ inHigh,\ \textcolor{keywordtype}{int}\ outLow,\ \textcolor{keywordtype}{int}\ outHigh);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_acbc5b618f5f2edfdcbcb1b09d0fe5b01}{registerDataRef}}(\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\_t}}\ *datarefName);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a0fbb159dada55615e5bc287792cc66eb}{registerCommand}}(\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\_t}}\ *commandName);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a4f963b2d9bde17bd8b484272f1a23ad4}{sendDebugMessage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_a18b331497de9aca959715f50fe9fbbd2}{sendSpeakMessage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_a5a1aeee3b77eb536667a3eb06640a679}{sendResetRequest}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_a9f82b97a563ce54343168b1554c37f3f}{flightLoopPause}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_p_l_pro_aa86daaf3ea4028b09a4f35fcd9338852}{flightLoopResume}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_x_p_l_pro_afe4d144c861585545e68131a69c93170}{xloop}}();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ }
+\DoxyCodeLine{00236\ \ \ \ \ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \_processSerial();}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \_processPacket();}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ \_transmitPacket();}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{void}\ \_sendname();}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{void}\ \_sendPacketVoid(\textcolor{keywordtype}{int}\ command,\ \textcolor{keywordtype}{int}\ handle);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ a\ command\ with\ a\ handle}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ \_sendPacketString(\textcolor{keywordtype}{int}\ command,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);\ \textcolor{comment}{//\ send\ a\ string}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{int}\ \_parseInt(\textcolor{keywordtype}{int}\ *outTarget,\ \textcolor{keywordtype}{char}\ *inBuffer,\ \textcolor{keywordtype}{int}\ parameter);}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{int}\ \_parseInt(\textcolor{keywordtype}{long}\ *outTarget,\ \textcolor{keywordtype}{char}\ *inBuffer,\ \textcolor{keywordtype}{int}\ parameter);}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{int}\ \_parseFloat(\textcolor{keywordtype}{float}\ *outTarget,\ \textcolor{keywordtype}{char}\ *inBuffer,\ \textcolor{keywordtype}{int}\ parameter);}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{int}\ \_parseString(\textcolor{keywordtype}{char}\ *outBuffer,\ \textcolor{keywordtype}{char}\ *inBuffer,\ \textcolor{keywordtype}{int}\ parameter,\ \textcolor{keywordtype}{int}\ maxSize);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ Stream\ *\_streamPtr;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\_deviceName;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{byte}\ \_registerFlag;}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{byte}\ \_connectionStatus;}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{structin_struct}{inStruct}}\ \_inData;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{char}\ \_sendBuffer[\mbox{\hyperlink{_x_p_l_pro_8h_ada0075933130c660e99c739c73677ddf}{XPLMAX\_PACKETSIZE\_TRANSMIT}}];}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{char}\ \_receiveBuffer[\mbox{\hyperlink{_x_p_l_pro_8h_a9b7df8b1a3379823b154785211b0a582}{XPLMAX\_PACKETSIZE\_RECEIVE}}];}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{int}\ \_receiveBufferBytesReceived;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ void\ (*\_xplInitFunction)(void);\ \ \textcolor{comment}{//\ this\ function\ will\ be\ called\ when\ the\ plugin\ is\ ready\ to\ receive\ binding\ requests}}
+\DoxyCodeLine{00260\ \ \ \ \ void\ (*\_xplStopFunction)(void);\ \ \textcolor{comment}{//\ this\ function\ will\ be\ called\ with\ the\ plugin\ receives\ message\ or\ detects\ xplane\ flight\ model\ inactive}}
+\DoxyCodeLine{00261\ \ \ \ \ void\ (*\_xplInboundHandler)(\mbox{\hyperlink{structin_struct}{inStruct}}\ *);\ \textcolor{comment}{//\ this\ function\ will\ be\ called\ when\ the\ plugin\ sends\ dataref\ values}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{int}\ \_handleAssignment;}
+\DoxyCodeLine{00264\ \ }
+\DoxyCodeLine{00265\ \};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

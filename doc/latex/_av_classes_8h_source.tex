@@ -1,0 +1,101 @@
+\doxysection{Av\+Classes.\+h}
+\hypertarget{_av_classes_8h_source}{}\label{_av_classes_8h_source}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/AvClasses.h@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/AvClasses.h}}
+\mbox{\hyperlink{_av_classes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ project\ avandro\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ library\ unoAvandro\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ created\ 2019\ c.rosay\ for\ avandro}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ AvClasses\_h}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ AvClasses\_h}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_class}{AvClass}}\{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_av_class_a95d2c9c6850e5369ec6a000465214ad9}{read}}(\textcolor{keywordtype}{bool}\ force)\{\textcolor{keywordflow}{return}\ -\/1;\};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_av_class_a8f8bb9f29252c7d8000fea7f50075c1e}{loop}}()\{\};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_av_class_a1d2b652a87e0b792706938a8489e6deb}{toString}}();}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Define\ a\ mixin\ class\ for\ pin\ setup}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_pin_able}{AvPinAble}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_av_pin_able_a1818274a7ff15623dbd6d4e519e5d547}{AvPinAble}}(\textcolor{keywordtype}{int}\ pin):\mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\_pin}}(pin)\ \{\};}
+\DoxyCodeLine{00023\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_av_pin_able_a3ac138e874f18ac66db93b0eb5d046d4}{getPin}}()\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\_pin}};\};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00025\ \ \ uint8\_t\ \mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\_pin}};}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_av_pin_able_a80bde329d0072c7b2072f1eb1d8117eb}{\_lastValue}}\ =\ -\/1;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Define\ a\ mixin\ class\ for\ readable\ classes}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_read_able}{AvReadAble}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_av_read_able_af1c3dcaa7cb5dd8c2a55f34bbcee6295}{read}}(\textcolor{keywordtype}{bool}\ force)\{\};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_av_read_able_a9a16882be9a53b9d49dff8b7fec9fcf4}{loop}}()\ \{\};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_write_able}{AvWriteAble}}\{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_av_write_able_a01211001634665dcde469f380c14bf67}{set}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{int}\ \_oldValue;}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ Define\ a\ mixin\ class\ for\ callback\ functionality}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_callback_able}{AvCallbackAble}}\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_av_callback_able_a7a33f6b5ff59b10df15519712749c5c3}{AvCallbackAble}}(\textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}))\ :\ \_callback(callback)\ \{\}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_av_callback_able_a8150fd11e9c28bbc04affd10b392981d}{callCallback}}(\textcolor{keywordtype}{int}\ value)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_callback\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \_callback(value);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ void\ (*\_callback)(int);}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_digital_pin}{AvDigitalPin}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_class}{AvClass}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_pin_able}{AvPinAble}}\{}
+\DoxyCodeLine{00067\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_av_digital_pin_a5533de65b73415ac51b63bd2ca0376e4}{AvDigitalPin}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{int}\ mode)\ :\ \mbox{\hyperlink{class_av_class}{AvClass}}(),\ \mbox{\hyperlink{class_av_pin_able}{AvPinAble}}(pin),\ \_mode(mode)\ \{\};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_av_digital_pin_a23a7c9dfecf05beeff1de2723b14659b}{toString}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \_mode;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ \_lastValue;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isPWM\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \ \ \ \ void\ (*\_callback)(int);\ \textcolor{comment}{//\ Pointer\ to\ the\ callback\ function}}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_analog_pin}{AvAnalogPin}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_class}{AvClass}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_callback_able}{AvCallbackAble}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_pin_able}{AvPinAble}}\{}
+\DoxyCodeLine{00086\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_av_analog_pin_abfda5c7f5947c0892574e4cb2d23c5bc}{AvAnalogPin}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}))\ :\ \mbox{\hyperlink{class_av_class}{AvClass}}(),\ \mbox{\hyperlink{class_av_callback_able}{AvCallbackAble}}(callback),\ \mbox{\hyperlink{class_av_pin_able}{AvPinAble}}(pin)\ \{\};}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_digital_pullup}{AvDigitalPullup}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_digital_pin}{AvDigitalPin}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_callback_able}{AvCallbackAble}},\ \mbox{\hyperlink{class_av_read_able}{AvReadAble}}\{}
+\DoxyCodeLine{00094\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{class_av_digital_pullup_a30a18363d3c8cfe693a5fd926697a5ca}{AvDigitalPullup}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}))\ :\ \mbox{\hyperlink{class_av_digital_pin}{AvDigitalPin}}(pin,\ INPUT\_PULLUP),\ \mbox{\hyperlink{class_av_callback_able}{AvCallbackAble}}(callback)\{\};}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_led}{AvLed}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_digital_pin}{AvDigitalPin}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_write_able}{AvWriteAble}}\{}
+\DoxyCodeLine{00101\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00102\ \ \ \mbox{\hyperlink{class_av_led_ab2d37c8ae9d8bc8e9cd277cfaad3c2ad}{AvLed}}(\textcolor{keywordtype}{int}\ pin):\mbox{\hyperlink{class_av_digital_pin}{AvDigitalPin}}(pin,\ OUTPUT)\{\};}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_av_button}{AvButton}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_av_digital_pullup}{AvDigitalPullup}}\{}
+\DoxyCodeLine{00108\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{class_av_button_acfc89e46f5d02846f341b28944f68fc8}{AvButton}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int})):\mbox{\hyperlink{class_av_digital_pullup}{AvDigitalPullup}}(pin,\ callback)\{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ digitalWrite(\mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\_pin}},\ HIGH);}
+\DoxyCodeLine{00111\ \ \ \};}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

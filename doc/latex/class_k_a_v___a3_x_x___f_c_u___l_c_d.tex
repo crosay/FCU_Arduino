@@ -1,0 +1,293 @@
+\doxysection{KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD Class Reference}
+\hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d}{}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d}\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+
+
+{\ttfamily \#include $<$KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a684107fd83c0d76a08091d2feab500ab}{KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD}} (uint8\+\_\+t CS, uint8\+\_\+t CLK, uint8\+\_\+t DATA)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a14052ed517f40639976399ed34a78c8d}{begin}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_aff5b8f17f55e401f0558c4ae2e1e0293}{clear\+LCD}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a6050032c5aa99c13faf3c3c32db632e7}{attach}} (byte CS, byte CLK, byte DATA)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a4f65121ae76763084b3030d0610f4645}{detach}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a62fbe1395ca8f18b9011c4758a953fef}{handle\+Mobi\+Flight\+Raw}} (char \texorpdfstring{$\ast$}{*}string)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a98bfbf25a315e908c3f21a7e7b302277}{set\+Speed\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a16e5d2bacff74b704792fce54ba4526a}{set\+Mach\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2797d2ef265f5a54e5c273a53e6238ba}{set\+Speed\+Dot}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5acd07e0619ad44f8e9712ff771ece05}{show\+Speed\+Value}} (uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2600b80c78f202e91e55d104b4e3b36e}{set\+Heading\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a0c803adfa3b75073205aa75cdd116104}{set\+Track\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a95ce57bd71c599dc54910bcee25f3ad8}{set\+Latitude\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_aec5a31f9e92fbaa635e64677507413e5}{set\+Heading\+Dot}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_ae73b8462f89327bfe53544c710a0720d}{show\+Heading\+Value}} (uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2f1ae1841642835564e9438fbc677b3f}{set\+Altitude\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a83aeb910903c98b5fe9286ea08f9005d}{set\+Lvl\+Ch\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a094bdbf4c57037b95ce5e55e1e964edd}{set\+Altitude\+Dot}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a765f682fde6e8a66c5cfe87fa6a854aa}{show\+Altitude\+Value}} (uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a24f565848a947acd22c535d4749d7f79}{set\+Vrt\+Spd\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a074f3159d314f5ae6b0f2c748ddb1729}{set\+FPALabel}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a248b66965c3ec20070432e816f5ed415}{set\+Sign\+Label}} (bool enabled)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a96d509226dc925f1713a229c3819ac02}{show\+Vertical\+Value}} (int16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a37d97783049dd71c384aca07f2d44f15}{show\+FPAValue}} (int8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5d902c14191f9bdfbfbb0ea35d3eb87c}{set\+Speed\+Dashes}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2bf14d0ea5007404bdd1877d87b06184}{set\+Heading\+Dashes}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a1e56d08534836dedf00a05517317cc09}{set\+Altitude\+Dashes}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a8a61d54dc91a9a493d37a054dfcdafb8}{set\+Vrt\+Spd\+Dashes}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a05171bf2ea5616dcaae90403a1cf82b6}{set\+Start\+Labels}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_adbfc07a1e0acb7b7a16f59fff301ed38}{toggle\+Trk\+Hdg\+Mode}} (int8\+\_\+t state)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a76f1bba1fa808466859f9ee3928b36a3}{set\+Heading\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7271a58c0581f9471bcdd0b6fbd25a2c}{set\+Track\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a393266e5f10d37bb33c5b7deace786c7}{set\+Speed\+Mode}} (uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7bae45f1447532249a9c76a950a95aaa}{set\+Mach\+Mode}} (uint16\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a684107fd83c0d76a08091d2feab500ab}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a684107fd83c0d76a08091d2feab500ab} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{KAV\_A3XX\_FCU\_LCD()}{KAV\_A3XX\_FCU\_LCD()}}
+{\footnotesize\ttfamily KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::\+KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{CS,  }\item[{uint8\+\_\+t}]{CLK,  }\item[{uint8\+\_\+t}]{DATA }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a6050032c5aa99c13faf3c3c32db632e7}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a6050032c5aa99c13faf3c3c32db632e7} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!attach@{attach}}
+\index{attach@{attach}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::attach (\begin{DoxyParamCaption}\item[{byte}]{CS,  }\item[{byte}]{CLK,  }\item[{byte}]{DATA }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a14052ed517f40639976399ed34a78c8d}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a14052ed517f40639976399ed34a78c8d} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!begin@{begin}}
+\index{begin@{begin}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_aff5b8f17f55e401f0558c4ae2e1e0293}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_aff5b8f17f55e401f0558c4ae2e1e0293} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!clearLCD@{clearLCD}}
+\index{clearLCD@{clearLCD}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{clearLCD()}{clearLCD()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::clear\+LCD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a4f65121ae76763084b3030d0610f4645}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a4f65121ae76763084b3030d0610f4645} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!detach@{detach}}
+\index{detach@{detach}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a62fbe1395ca8f18b9011c4758a953fef}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a62fbe1395ca8f18b9011c4758a953fef} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!handleMobiFlightRaw@{handleMobiFlightRaw}}
+\index{handleMobiFlightRaw@{handleMobiFlightRaw}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{handleMobiFlightRaw()}{handleMobiFlightRaw()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::handle\+Mobi\+Flight\+Raw (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a1e56d08534836dedf00a05517317cc09}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a1e56d08534836dedf00a05517317cc09} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setAltitudeDashes@{setAltitudeDashes}}
+\index{setAltitudeDashes@{setAltitudeDashes}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setAltitudeDashes()}{setAltitudeDashes()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Altitude\+Dashes (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a094bdbf4c57037b95ce5e55e1e964edd}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a094bdbf4c57037b95ce5e55e1e964edd} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setAltitudeDot@{setAltitudeDot}}
+\index{setAltitudeDot@{setAltitudeDot}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setAltitudeDot()}{setAltitudeDot()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Altitude\+Dot (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2f1ae1841642835564e9438fbc677b3f}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2f1ae1841642835564e9438fbc677b3f} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setAltitudeLabel@{setAltitudeLabel}}
+\index{setAltitudeLabel@{setAltitudeLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setAltitudeLabel()}{setAltitudeLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Altitude\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a074f3159d314f5ae6b0f2c748ddb1729}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a074f3159d314f5ae6b0f2c748ddb1729} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setFPALabel@{setFPALabel}}
+\index{setFPALabel@{setFPALabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setFPALabel()}{setFPALabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+FPALabel (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2bf14d0ea5007404bdd1877d87b06184}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2bf14d0ea5007404bdd1877d87b06184} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setHeadingDashes@{setHeadingDashes}}
+\index{setHeadingDashes@{setHeadingDashes}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setHeadingDashes()}{setHeadingDashes()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Heading\+Dashes (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_aec5a31f9e92fbaa635e64677507413e5}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_aec5a31f9e92fbaa635e64677507413e5} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setHeadingDot@{setHeadingDot}}
+\index{setHeadingDot@{setHeadingDot}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setHeadingDot()}{setHeadingDot()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Heading\+Dot (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2600b80c78f202e91e55d104b4e3b36e}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2600b80c78f202e91e55d104b4e3b36e} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setHeadingLabel@{setHeadingLabel}}
+\index{setHeadingLabel@{setHeadingLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setHeadingLabel()}{setHeadingLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Heading\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a76f1bba1fa808466859f9ee3928b36a3}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a76f1bba1fa808466859f9ee3928b36a3} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setHeadingMode@{setHeadingMode}}
+\index{setHeadingMode@{setHeadingMode}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setHeadingMode()}{setHeadingMode()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Heading\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a95ce57bd71c599dc54910bcee25f3ad8}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a95ce57bd71c599dc54910bcee25f3ad8} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setLatitudeLabel@{setLatitudeLabel}}
+\index{setLatitudeLabel@{setLatitudeLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setLatitudeLabel()}{setLatitudeLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Latitude\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a83aeb910903c98b5fe9286ea08f9005d}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a83aeb910903c98b5fe9286ea08f9005d} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setLvlChLabel@{setLvlChLabel}}
+\index{setLvlChLabel@{setLvlChLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setLvlChLabel()}{setLvlChLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Lvl\+Ch\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a16e5d2bacff74b704792fce54ba4526a}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a16e5d2bacff74b704792fce54ba4526a} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setMachLabel@{setMachLabel}}
+\index{setMachLabel@{setMachLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setMachLabel()}{setMachLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Mach\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7bae45f1447532249a9c76a950a95aaa}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7bae45f1447532249a9c76a950a95aaa} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setMachMode@{setMachMode}}
+\index{setMachMode@{setMachMode}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setMachMode()}{setMachMode()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Mach\+Mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a248b66965c3ec20070432e816f5ed415}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a248b66965c3ec20070432e816f5ed415} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setSignLabel@{setSignLabel}}
+\index{setSignLabel@{setSignLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setSignLabel()}{setSignLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Sign\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5d902c14191f9bdfbfbb0ea35d3eb87c}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5d902c14191f9bdfbfbb0ea35d3eb87c} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setSpeedDashes@{setSpeedDashes}}
+\index{setSpeedDashes@{setSpeedDashes}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setSpeedDashes()}{setSpeedDashes()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Speed\+Dashes (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2797d2ef265f5a54e5c273a53e6238ba}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a2797d2ef265f5a54e5c273a53e6238ba} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setSpeedDot@{setSpeedDot}}
+\index{setSpeedDot@{setSpeedDot}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setSpeedDot()}{setSpeedDot()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Speed\+Dot (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a98bfbf25a315e908c3f21a7e7b302277}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a98bfbf25a315e908c3f21a7e7b302277} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setSpeedLabel@{setSpeedLabel}}
+\index{setSpeedLabel@{setSpeedLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setSpeedLabel()}{setSpeedLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Speed\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a393266e5f10d37bb33c5b7deace786c7}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a393266e5f10d37bb33c5b7deace786c7} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setSpeedMode@{setSpeedMode}}
+\index{setSpeedMode@{setSpeedMode}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setSpeedMode()}{setSpeedMode()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Speed\+Mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a05171bf2ea5616dcaae90403a1cf82b6}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a05171bf2ea5616dcaae90403a1cf82b6} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setStartLabels@{setStartLabels}}
+\index{setStartLabels@{setStartLabels}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setStartLabels()}{setStartLabels()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Start\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a0c803adfa3b75073205aa75cdd116104}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a0c803adfa3b75073205aa75cdd116104} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setTrackLabel@{setTrackLabel}}
+\index{setTrackLabel@{setTrackLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setTrackLabel()}{setTrackLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Track\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7271a58c0581f9471bcdd0b6fbd25a2c}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a7271a58c0581f9471bcdd0b6fbd25a2c} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setTrackMode@{setTrackMode}}
+\index{setTrackMode@{setTrackMode}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setTrackMode()}{setTrackMode()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Track\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a8a61d54dc91a9a493d37a054dfcdafb8}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a8a61d54dc91a9a493d37a054dfcdafb8} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setVrtSpdDashes@{setVrtSpdDashes}}
+\index{setVrtSpdDashes@{setVrtSpdDashes}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setVrtSpdDashes()}{setVrtSpdDashes()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Vrt\+Spd\+Dashes (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a24f565848a947acd22c535d4749d7f79}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a24f565848a947acd22c535d4749d7f79} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!setVrtSpdLabel@{setVrtSpdLabel}}
+\index{setVrtSpdLabel@{setVrtSpdLabel}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{setVrtSpdLabel()}{setVrtSpdLabel()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::set\+Vrt\+Spd\+Label (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a765f682fde6e8a66c5cfe87fa6a854aa}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a765f682fde6e8a66c5cfe87fa6a854aa} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!showAltitudeValue@{showAltitudeValue}}
+\index{showAltitudeValue@{showAltitudeValue}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{showAltitudeValue()}{showAltitudeValue()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::show\+Altitude\+Value (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a37d97783049dd71c384aca07f2d44f15}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a37d97783049dd71c384aca07f2d44f15} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!showFPAValue@{showFPAValue}}
+\index{showFPAValue@{showFPAValue}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{showFPAValue()}{showFPAValue()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::show\+FPAValue (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_ae73b8462f89327bfe53544c710a0720d}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_ae73b8462f89327bfe53544c710a0720d} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!showHeadingValue@{showHeadingValue}}
+\index{showHeadingValue@{showHeadingValue}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{showHeadingValue()}{showHeadingValue()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::show\+Heading\+Value (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5acd07e0619ad44f8e9712ff771ece05}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a5acd07e0619ad44f8e9712ff771ece05} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!showSpeedValue@{showSpeedValue}}
+\index{showSpeedValue@{showSpeedValue}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{showSpeedValue()}{showSpeedValue()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::show\+Speed\+Value (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_a96d509226dc925f1713a229c3819ac02}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_a96d509226dc925f1713a229c3819ac02} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!showVerticalValue@{showVerticalValue}}
+\index{showVerticalValue@{showVerticalValue}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{showVerticalValue()}{showVerticalValue()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::show\+Vertical\+Value (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_a_v___a3_x_x___f_c_u___l_c_d_adbfc07a1e0acb7b7a16f59fff301ed38}\label{class_k_a_v___a3_x_x___f_c_u___l_c_d_adbfc07a1e0acb7b7a16f59fff301ed38} 
+\index{KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}!toggleTrkHdgMode@{toggleTrkHdgMode}}
+\index{toggleTrkHdgMode@{toggleTrkHdgMode}!KAV\_A3XX\_FCU\_LCD@{KAV\_A3XX\_FCU\_LCD}}
+\doxysubsubsection{\texorpdfstring{toggleTrkHdgMode()}{toggleTrkHdgMode()}}
+{\footnotesize\ttfamily void KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD\+::toggle\+Trk\+Hdg\+Mode (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8h}{KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+h}}\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_k_a_v___a3_x_x___f_c_u___l_c_d_8cpp}{KAV\+\_\+\+A3\+XX\+\_\+\+FCU\+\_\+\+LCD.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,72 @@
+\doxysection{Av\+Digital\+Pin Class Reference}
+\hypertarget{class_av_digital_pin}{}\label{class_av_digital_pin}\index{AvDigitalPin@{AvDigitalPin}}
+
+
+{\ttfamily \#include $<$Av\+Classes.\+h$>$}
+
+Inheritance diagram for Av\+Digital\+Pin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_av_digital_pin}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_digital_pin_a5533de65b73415ac51b63bd2ca0376e4}{Av\+Digital\+Pin}} (int pin, int mode)
+\item 
+virtual char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_av_digital_pin_a23a7c9dfecf05beeff1de2723b14659b}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_class}{Av\+Class}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_av_class_a95d2c9c6850e5369ec6a000465214ad9}{read}} (bool force)
+\item 
+virtual void \mbox{\hyperlink{class_av_class_a8f8bb9f29252c7d8000fea7f50075c1e}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_av_pin_able_a1818274a7ff15623dbd6d4e519e5d547}{Av\+Pin\+Able}} (int pin)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_a3ac138e874f18ac66db93b0eb5d046d4}{get\+Pin}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_av_pin_able}{Av\+Pin\+Able}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_av_pin_able_afd53b47a3b5309b0f0265c0afe727627}{\+\_\+pin}}
+\item 
+int \mbox{\hyperlink{class_av_pin_able_a80bde329d0072c7b2072f1eb1d8117eb}{\+\_\+last\+Value}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a class to manipulate single digital pin (LEDs, switches) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_av_digital_pin_a5533de65b73415ac51b63bd2ca0376e4}\label{class_av_digital_pin_a5533de65b73415ac51b63bd2ca0376e4} 
+\index{AvDigitalPin@{AvDigitalPin}!AvDigitalPin@{AvDigitalPin}}
+\index{AvDigitalPin@{AvDigitalPin}!AvDigitalPin@{AvDigitalPin}}
+\doxysubsubsection{\texorpdfstring{AvDigitalPin()}{AvDigitalPin()}}
+{\footnotesize\ttfamily Av\+Digital\+Pin\+::\+Av\+Digital\+Pin (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+creator of the class parameters\+: int pin \+: the digital pin on the arduino board int mode \+: INPUT / OUTPUT / INPUT\+\_\+\+PULLUP 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_av_digital_pin_a23a7c9dfecf05beeff1de2723b14659b}\label{class_av_digital_pin_a23a7c9dfecf05beeff1de2723b14659b} 
+\index{AvDigitalPin@{AvDigitalPin}!toString@{toString}}
+\index{toString@{toString}!AvDigitalPin@{AvDigitalPin}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily virtual char \texorpdfstring{$\ast$}{*} Av\+Digital\+Pin\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_av_class_a1d2b652a87e0b792706938a8489e6deb}{Av\+Class}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_av_classes_8h}{Av\+Classes.\+h}}\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_av_classes_8cpp}{Av\+Classes.\+cpp}}\end{DoxyCompactItemize}

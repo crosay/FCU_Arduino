@@ -1,0 +1,465 @@
+\doxysection{XPLPro Class Reference}
+\hypertarget{class_x_p_l_pro}{}\label{class_x_p_l_pro}\index{XPLPro@{XPLPro}}
+
+
+Core class for the \doxylink{class_x_p_l_pro}{XPLPro} Arduino library.  
+
+
+
+
+{\ttfamily \#include $<$XPLPro.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_x_p_l_pro_a211c545cc0b0301f86f7783cf4cde16d}{XPLPro}} (Stream \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a01d70aea23248c651e16771b72ac8b87}{begin}} (const char \texorpdfstring{$\ast$}{*}devicename, void(\texorpdfstring{$\ast$}{*}init\+Function)(void), void(\texorpdfstring{$\ast$}{*}stop\+Function)(void), void(\texorpdfstring{$\ast$}{*}inbound\+Handler)(\mbox{\hyperlink{structin_struct}{in\+Struct}} \texorpdfstring{$\ast$}{*}))
+\begin{DoxyCompactList}\small\item\em Register device and set callback functions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a515eb58099de91d85b006fa540fecfc3}{connection\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Return connection status. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867}{command\+Trigger}} (int command\+Handle)
+\begin{DoxyCompactList}\small\item\em Trigger a command once. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a378957a5d1fcf243eef7bafc682bbbf9}{command\+Trigger}} (int command\+Handle, int trigger\+Count)
+\begin{DoxyCompactList}\small\item\em Trigger a command multiple times. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_ac560289d5a39e8bf6047e986d34fa90f}{command\+Start}} (int command\+Handle)
+\begin{DoxyCompactList}\small\item\em Start a command. All command\+Start must be balanced with a command\+End. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a461d415417e72fe753dde96994f3840d}{command\+End}} (int command\+Handle)
+\begin{DoxyCompactList}\small\item\em End a command. All command\+Start must be balanced with a command\+End. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}{dataref\+Write}} (int handle, long value)
+\begin{DoxyCompactList}\small\item\em Write an integer Data\+Ref. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a705fffc473f30e134f93bb1b82989945}{dataref\+Write}} (int handle, int value)
+\begin{DoxyCompactList}\small\item\em Write an integer Data\+Ref. Maps to long Data\+Refs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a3746798a2653c31c86c29cdb07695505}{dataref\+Write}} (int handle, long value, int array\+Element)
+\begin{DoxyCompactList}\small\item\em Write a Integer Data\+Ref to an array element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a1d636f9d3c8ffbefba2fbfbe004e4cb3}{dataref\+Write}} (int handle, int value, int array\+Element)
+\begin{DoxyCompactList}\small\item\em Write a Integer Data\+Ref to an array element. Maps to long Data\+Refs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a1fdece5ee51011aa4fdc2142a76f51cf}{dataref\+Write}} (int handle, float value)
+\begin{DoxyCompactList}\small\item\em Write a float Data\+Ref. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a01cf96ee4fb1bb8bbf8907f38d6baf93}{dataref\+Write}} (int handle, float value, int array\+Element)
+\begin{DoxyCompactList}\small\item\em Write a float Data\+Ref to an array element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_acbd3d40a201004706e21c067d349f273}{request\+Updates}} (int handle, int rate, float precision)
+\begin{DoxyCompactList}\small\item\em Request Data\+Ref updates from the plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a8e49972c73163cde0fbd770e66e32dfa}{request\+Updates}} (int handle, int rate, float precision, int array\+Element)
+\begin{DoxyCompactList}\small\item\em Request Data\+Ref updates from the plugin for an array Data\+Ref. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a74b21ad18aef1af39be93c46011a2226}{set\+Scaling}} (int handle, int in\+Low, int in\+High, int out\+Low, int out\+High)
+\begin{DoxyCompactList}\small\item\em set scaling factor for a Data\+Ref (offload mapping to the plugin) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_acbc5b618f5f2edfdcbcb1b09d0fe5b01}{register\+Data\+Ref}} (\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}} \texorpdfstring{$\ast$}{*}dataref\+Name)
+\begin{DoxyCompactList}\small\item\em Register a Data\+Ref and obtain a handle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a0fbb159dada55615e5bc287792cc66eb}{register\+Command}} (\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}} \texorpdfstring{$\ast$}{*}command\+Name)
+\begin{DoxyCompactList}\small\item\em Register a Command and obtain a handle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a4f963b2d9bde17bd8b484272f1a23ad4}{send\+Debug\+Message}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a debug message to the plugin. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_x_p_l_pro_a18b331497de9aca959715f50fe9fbbd2}{send\+Speak\+Message}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a speech message to the plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a5a1aeee3b77eb536667a3eb06640a679}{send\+Reset\+Request}} (void)
+\begin{DoxyCompactList}\small\item\em Request a reset from the plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_x_p_l_pro_a9f82b97a563ce54343168b1554c37f3f}{flight\+Loop\+Pause}} (void)
+\item 
+void \mbox{\hyperlink{class_x_p_l_pro_aa86daaf3ea4028b09a4f35fcd9338852}{flight\+Loop\+Resume}} (void)
+\item 
+int \mbox{\hyperlink{class_x_p_l_pro_afe4d144c861585545e68131a69c93170}{xloop}} ()
+\begin{DoxyCompactList}\small\item\em Cyclic loop handler, must be called in idle task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core class for the \doxylink{class_x_p_l_pro}{XPLPro} Arduino library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_x_p_l_pro_a211c545cc0b0301f86f7783cf4cde16d}\label{class_x_p_l_pro_a211c545cc0b0301f86f7783cf4cde16d} 
+\index{XPLPro@{XPLPro}!XPLPro@{XPLPro}}
+\index{XPLPro@{XPLPro}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{XPLPro()}{XPLPro()}}
+{\footnotesize\ttfamily XPLPro\+::\+XPLPro (\begin{DoxyParamCaption}\item[{Stream \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Device to use (should be \&Serial) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_x_p_l_pro_a01d70aea23248c651e16771b72ac8b87}\label{class_x_p_l_pro_a01d70aea23248c651e16771b72ac8b87} 
+\index{XPLPro@{XPLPro}!begin@{begin}}
+\index{begin@{begin}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void XPLPro\+::begin (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{devicename,  }\item[{void(\texorpdfstring{$\ast$}{*})(void)}]{init\+Function,  }\item[{void(\texorpdfstring{$\ast$}{*})(void)}]{stop\+Function,  }\item[{void(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{structin_struct}{in\+Struct}} \texorpdfstring{$\ast$}{*})}]{inbound\+Handler }\end{DoxyParamCaption})}
+
+
+
+Register device and set callback functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em devicename} & Device name \\
+\hline
+{\em init\+Function} & Callback for Data\+Ref and Command registration \\
+\hline
+{\em stop\+Function} & Callback for XPlane shutdown or plane change \\
+\hline
+{\em inbound\+Handler} & Callback for incoming Data\+Refs \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a461d415417e72fe753dde96994f3840d}\label{class_x_p_l_pro_a461d415417e72fe753dde96994f3840d} 
+\index{XPLPro@{XPLPro}!commandEnd@{commandEnd}}
+\index{commandEnd@{commandEnd}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{commandEnd()}{commandEnd()}}
+{\footnotesize\ttfamily int XPLPro\+::command\+End (\begin{DoxyParamCaption}\item[{int}]{command\+Handle }\end{DoxyParamCaption})}
+
+
+
+End a command. All command\+Start must be balanced with a command\+End. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Handle} & Handle of the command to start \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: OK, -\/1\+: command was not registered 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_ac560289d5a39e8bf6047e986d34fa90f}\label{class_x_p_l_pro_ac560289d5a39e8bf6047e986d34fa90f} 
+\index{XPLPro@{XPLPro}!commandStart@{commandStart}}
+\index{commandStart@{commandStart}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{commandStart()}{commandStart()}}
+{\footnotesize\ttfamily int XPLPro\+::command\+Start (\begin{DoxyParamCaption}\item[{int}]{command\+Handle }\end{DoxyParamCaption})}
+
+
+
+Start a command. All command\+Start must be balanced with a command\+End. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Handle} & Handle of the command to start \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: OK, -\/1\+: command was not registered 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867}\label{class_x_p_l_pro_a8657b590f06dc0babe7a934b8b815867} 
+\index{XPLPro@{XPLPro}!commandTrigger@{commandTrigger}}
+\index{commandTrigger@{commandTrigger}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{commandTrigger()}{commandTrigger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int XPLPro\+::command\+Trigger (\begin{DoxyParamCaption}\item[{int}]{command\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Trigger a command once. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Handle} & of the command to trigger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: OK, -\/1\+: command was not registered 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a378957a5d1fcf243eef7bafc682bbbf9}\label{class_x_p_l_pro_a378957a5d1fcf243eef7bafc682bbbf9} 
+\index{XPLPro@{XPLPro}!commandTrigger@{commandTrigger}}
+\index{commandTrigger@{commandTrigger}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{commandTrigger()}{commandTrigger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int XPLPro\+::command\+Trigger (\begin{DoxyParamCaption}\item[{int}]{command\+Handle,  }\item[{int}]{trigger\+Count }\end{DoxyParamCaption})}
+
+
+
+Trigger a command multiple times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Handle} & Handle of the command to trigger \\
+\hline
+{\em trigger\+Count} & Number of times to trigger the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: OK, -\/1\+: command was not registered 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a515eb58099de91d85b006fa540fecfc3}\label{class_x_p_l_pro_a515eb58099de91d85b006fa540fecfc3} 
+\index{XPLPro@{XPLPro}!connectionStatus@{connectionStatus}}
+\index{connectionStatus@{connectionStatus}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{connectionStatus()}{connectionStatus()}}
+{\footnotesize\ttfamily int XPLPro\+::connection\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return connection status. 
+
+\begin{DoxyReturn}{Returns}
+True if connection to XPlane established 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a1fdece5ee51011aa4fdc2142a76f51cf}\label{class_x_p_l_pro_a1fdece5ee51011aa4fdc2142a76f51cf} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Write a float Data\+Ref. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a01cf96ee4fb1bb8bbf8907f38d6baf93}\label{class_x_p_l_pro_a01cf96ee4fb1bb8bbf8907f38d6baf93} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{float}]{value,  }\item[{int}]{array\+Element }\end{DoxyParamCaption})}
+
+
+
+Write a float Data\+Ref to an array element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+{\em array\+Element} & Array element to write to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a705fffc473f30e134f93bb1b82989945}\label{class_x_p_l_pro_a705fffc473f30e134f93bb1b82989945} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Write an integer Data\+Ref. Maps to long Data\+Refs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a1d636f9d3c8ffbefba2fbfbe004e4cb3}\label{class_x_p_l_pro_a1d636f9d3c8ffbefba2fbfbe004e4cb3} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{int}]{value,  }\item[{int}]{array\+Element }\end{DoxyParamCaption})}
+
+
+
+Write a Integer Data\+Ref to an array element. Maps to long Data\+Refs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+{\em array\+Element} & Array element to write to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7}\label{class_x_p_l_pro_aae87ea2670fd28df9bc931d332a25ba7} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{long}]{value }\end{DoxyParamCaption})}
+
+
+
+Write an integer Data\+Ref. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a3746798a2653c31c86c29cdb07695505}\label{class_x_p_l_pro_a3746798a2653c31c86c29cdb07695505} 
+\index{XPLPro@{XPLPro}!datarefWrite@{datarefWrite}}
+\index{datarefWrite@{datarefWrite}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{datarefWrite()}{datarefWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void XPLPro\+::dataref\+Write (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{long}]{value,  }\item[{int}]{array\+Element }\end{DoxyParamCaption})}
+
+
+
+Write a Integer Data\+Ref to an array element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to write \\
+\hline
+{\em value} & Value to write to the Data\+Ref \\
+\hline
+{\em array\+Element} & Array element to write to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a9f82b97a563ce54343168b1554c37f3f}\label{class_x_p_l_pro_a9f82b97a563ce54343168b1554c37f3f} 
+\index{XPLPro@{XPLPro}!flightLoopPause@{flightLoopPause}}
+\index{flightLoopPause@{flightLoopPause}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{flightLoopPause()}{flightLoopPause()}}
+{\footnotesize\ttfamily void XPLPro\+::flight\+Loop\+Pause (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_x_p_l_pro_aa86daaf3ea4028b09a4f35fcd9338852}\label{class_x_p_l_pro_aa86daaf3ea4028b09a4f35fcd9338852} 
+\index{XPLPro@{XPLPro}!flightLoopResume@{flightLoopResume}}
+\index{flightLoopResume@{flightLoopResume}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{flightLoopResume()}{flightLoopResume()}}
+{\footnotesize\ttfamily void XPLPro\+::flight\+Loop\+Resume (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_x_p_l_pro_a0fbb159dada55615e5bc287792cc66eb}\label{class_x_p_l_pro_a0fbb159dada55615e5bc287792cc66eb} 
+\index{XPLPro@{XPLPro}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily int XPLPro\+::register\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{command\+Name }\end{DoxyParamCaption})}
+
+
+
+Register a Command and obtain a handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Name} & Name of the Command (or abbreviation) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Assigned handle for the Command, -\/1 if Command was not found 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_acbc5b618f5f2edfdcbcb1b09d0fe5b01}\label{class_x_p_l_pro_acbc5b618f5f2edfdcbcb1b09d0fe5b01} 
+\index{XPLPro@{XPLPro}!registerDataRef@{registerDataRef}}
+\index{registerDataRef@{registerDataRef}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{registerDataRef()}{registerDataRef()}}
+{\footnotesize\ttfamily int XPLPro\+::register\+Data\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_x_p_l_pro_8h_a4cf786c92bd5159f268602dfcf4ce478}{XPString\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dataref\+Name }\end{DoxyParamCaption})}
+
+
+
+Register a Data\+Ref and obtain a handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataref\+Name} & Name of the Data\+Ref (or abbreviation) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Assigned handle for the Data\+Ref, -\/1 if Data\+Ref was not found 
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_acbd3d40a201004706e21c067d349f273}\label{class_x_p_l_pro_acbd3d40a201004706e21c067d349f273} 
+\index{XPLPro@{XPLPro}!requestUpdates@{requestUpdates}}
+\index{requestUpdates@{requestUpdates}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{requestUpdates()}{requestUpdates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void XPLPro\+::request\+Updates (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{int}]{rate,  }\item[{float}]{precision }\end{DoxyParamCaption})}
+
+
+
+Request Data\+Ref updates from the plugin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to subscribe to \\
+\hline
+{\em rate} & Maximum rate for updates to reduce traffic \\
+\hline
+{\em precision} & Floating point precision \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a8e49972c73163cde0fbd770e66e32dfa}\label{class_x_p_l_pro_a8e49972c73163cde0fbd770e66e32dfa} 
+\index{XPLPro@{XPLPro}!requestUpdates@{requestUpdates}}
+\index{requestUpdates@{requestUpdates}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{requestUpdates()}{requestUpdates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void XPLPro\+::request\+Updates (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{int}]{rate,  }\item[{float}]{precision,  }\item[{int}]{array\+Element }\end{DoxyParamCaption})}
+
+
+
+Request Data\+Ref updates from the plugin for an array Data\+Ref. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Handle of the Data\+Ref to subscribe to \\
+\hline
+{\em rate} & Maximum rate for updates to reduce traffic \\
+\hline
+{\em precision} & Floating point precision \\
+\hline
+{\em array\+Element} & Array element to subscribe to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_x_p_l_pro_a4f963b2d9bde17bd8b484272f1a23ad4}\label{class_x_p_l_pro_a4f963b2d9bde17bd8b484272f1a23ad4} 
+\index{XPLPro@{XPLPro}!sendDebugMessage@{sendDebugMessage}}
+\index{sendDebugMessage@{sendDebugMessage}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{sendDebugMessage()}{sendDebugMessage()}}
+{\footnotesize\ttfamily int XPLPro\+::send\+Debug\+Message (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a debug message to the plugin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Message to show as debug string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a5a1aeee3b77eb536667a3eb06640a679}\label{class_x_p_l_pro_a5a1aeee3b77eb536667a3eb06640a679} 
+\index{XPLPro@{XPLPro}!sendResetRequest@{sendResetRequest}}
+\index{sendResetRequest@{sendResetRequest}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{sendResetRequest()}{sendResetRequest()}}
+{\footnotesize\ttfamily void XPLPro\+::send\+Reset\+Request (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Request a reset from the plugin. 
+
+\Hypertarget{class_x_p_l_pro_a18b331497de9aca959715f50fe9fbbd2}\label{class_x_p_l_pro_a18b331497de9aca959715f50fe9fbbd2} 
+\index{XPLPro@{XPLPro}!sendSpeakMessage@{sendSpeakMessage}}
+\index{sendSpeakMessage@{sendSpeakMessage}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{sendSpeakMessage()}{sendSpeakMessage()}}
+{\footnotesize\ttfamily int XPLPro\+::send\+Speak\+Message (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a speech message to the plugin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Message to speak \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_x_p_l_pro_a74b21ad18aef1af39be93c46011a2226}\label{class_x_p_l_pro_a74b21ad18aef1af39be93c46011a2226} 
+\index{XPLPro@{XPLPro}!setScaling@{setScaling}}
+\index{setScaling@{setScaling}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{setScaling()}{setScaling()}}
+{\footnotesize\ttfamily void XPLPro\+::set\+Scaling (\begin{DoxyParamCaption}\item[{int}]{handle,  }\item[{int}]{in\+Low,  }\item[{int}]{in\+High,  }\item[{int}]{out\+Low,  }\item[{int}]{out\+High }\end{DoxyParamCaption})}
+
+
+
+set scaling factor for a Data\+Ref (offload mapping to the plugin) 
+
+\Hypertarget{class_x_p_l_pro_afe4d144c861585545e68131a69c93170}\label{class_x_p_l_pro_afe4d144c861585545e68131a69c93170} 
+\index{XPLPro@{XPLPro}!xloop@{xloop}}
+\index{xloop@{xloop}!XPLPro@{XPLPro}}
+\doxysubsubsection{\texorpdfstring{xloop()}{xloop()}}
+{\footnotesize\ttfamily int XPLPro\+::xloop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Cyclic loop handler, must be called in idle task. 
+
+\begin{DoxyReturn}{Returns}
+Connection status 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_x_p_l_pro_8h}{XPLPro.\+h}}\item 
+C\+:/\+Users/cyril/repo/pio/\+FCU\+\_\+\+Arduino/lib/src/\mbox{\hyperlink{_x_p_l_pro_8cpp}{XPLPro.\+cpp}}\end{DoxyCompactItemize}

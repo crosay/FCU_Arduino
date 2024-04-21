@@ -1,0 +1,81 @@
+\doxysection{direct\+\_\+pin\+\_\+read.\+h}
+\hypertarget{direct__pin__read_8h_source}{}\label{direct__pin__read_8h_source}\index{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/direct\_pin\_read.h@{C:/Users/cyril/repo/pio/FCU\_Arduino/lib/src/direct\_pin\_read.h}}
+\mbox{\hyperlink{direct__pin__read_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ direct\_pin\_read\_h\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ direct\_pin\_read\_h\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#if\ defined(\_\_AVR\_\_)\ ||\ (defined(\_\_arm\_\_)\ \&\&\ defined(CORE\_TEENSY))}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ uint8\_t}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (portInputRegister(digitalPinToPort(pin)))}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (digitalPinToBitMask(pin))}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ mask)\ \ \ \ \ (((*(base))\ \&\ (mask))\ ?\ 1\ :\ 0)}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#elif\ defined(\_\_SAM3X8E\_\_)\ \ }\textcolor{comment}{//\ ||\ defined(ESP8266)}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (portInputRegister(digitalPinToPort(pin)))}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (digitalPinToBitMask(pin))}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ mask)\ \ \ \ \ (((*(base))\ \&\ (mask))\ ?\ 1\ :\ 0)}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#elif\ defined(\_\_PIC32MX\_\_)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (portModeRegister(digitalPinToPort(pin)))}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (digitalPinToBitMask(pin))}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ mask)\ (((*(base+4))\ \&\ (mask))\ ?\ 1\ :\ 0)}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*\ ESP8266\ v2.0.0\ Arduino\ workaround\ for\ bug\ https://github.com/esp8266/Arduino/issues/1110\ */}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#elif\ defined(ESP8266)}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ ((volatile\ uint32\_t\ *)(0x60000000+(0x318)))}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (digitalPinToBitMask(pin))}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ mask)\ \ \ \ \ (((*(base))\ \&\ (mask))\ ?\ 1\ :\ 0)}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#elif\ defined(\_\_SAMD21G18A\_\_)}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ portModeRegister(digitalPinToPort(pin))}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (digitalPinToBitMask(pin))}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ mask)\ \ \ \ \ (((*((base)+8))\ \&\ (mask))\ ?\ 1\ :\ 0)}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#elif\ defined(RBL\_NRF51822)}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (0)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ (pin)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ pin)\ \ \ \ \ \ nrf\_gpio\_pin\_read(pin)}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#elif\ defined(\_\_arc\_\_)\ }\textcolor{comment}{/*\ Arduino101/Genuino101\ specifics\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}scss\_registers.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}portable.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}avr/pgmspace.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ GPIO\_ID(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (g\_APinDescription[pin].ulGPIOId)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ GPIO\_TYPE(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (g\_APinDescription[pin].ulGPIOType)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ GPIO\_BASE(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (g\_APinDescription[pin].ulGPIOBase)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ EXT\_PORT\_OFFSET\_SS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0A}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ EXT\_PORT\_OFFSET\_SOC\ \ \ \ \ \ \ \ \ \ \ \ \ 0x50}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BASEREG(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ ((volatile\ uint32\_t\ *)g\_APinDescription[pin].ulGPIOBase)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ PIN\_TO\_BITMASK(pin)\ \ \ \ \ \ \ \ \ \ \ \ \ pin}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ IO\_REG\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \_\_attribute\_\_((always\_inline))}
+\DoxyCodeLine{00061\ IO\_REG\_TYPE\ directRead(\textcolor{keyword}{volatile}\ IO\_REG\_TYPE\ *base,\ IO\_REG\_TYPE\ pin)}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ IO\_REG\_TYPE\ ret;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (SS\_GPIO\ ==\ GPIO\_TYPE(pin))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ret\ =\ READ\_ARC\_REG(((IO\_REG\_TYPE)base\ +\ EXT\_PORT\_OFFSET\_SS));}
+\DoxyCodeLine{00066\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ret\ =\ MMIO\_REG\_VAL\_FROM\_BASE((IO\_REG\_TYPE)base,\ EXT\_PORT\_OFFSET\_SOC);}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ ((ret\ >>\ GPIO\_ID(pin))\ \&\ 0x01);}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ DIRECT\_PIN\_READ(base,\ pin)\ \ \ \ \ \ directRead(base,\ pin)}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
