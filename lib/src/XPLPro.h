@@ -37,7 +37,7 @@
 #else
 // and off otherwise
 #define XPL_USE_PROGMEM 0
-#include <avr/dtostrf.h>                // this is needed for non-AVR boards to include the dtostrf function
+//#include <avr/dtostrf.h>                // this is needed for non-AVR boards to include the dtostrf function
 
 #endif
 #endif
@@ -77,6 +77,7 @@ typedef const char XPString_t;
 // Items in caps generally come from XPlane. Items in lower case are generally sent from the arduino.
 #define XPLCMD_SENDNAME 'N'                // plugin request name from arduino
 #define XPLRESPONSE_NAME 'n'               // Arduino responds with device name as initialized in the "begin" function
+#define XPLRESPONSE_VERSION 'v'             // Arduino responds with build date and time (when sketch was compiled)
 #define XPLCMD_SENDREQUEST 'Q'             // plugin sends this when it is ready to register bindings
 #define XPLCMD_FLIGHTLOOPPAUSE	    'p'		// stop flight loop while we register
 #define XPLCMD_FLIGHTLOOPRESUME  	'q'		// 
@@ -109,6 +110,7 @@ struct inStruct // potentially 'class'
     int element;
     long inLong;
     float inFloat;
+    int strLength;      // if string data, length of string data
     char* inStr;
 };
 
@@ -236,15 +238,18 @@ public:
     
 private:
     void _processSerial();
+    int _receiveNSerial(int inSize);
     void _processPacket();
     void _transmitPacket();
     void _sendname();
+    void _sendVersion();
     void _sendPacketVoid(int command, int handle);        // just a command with a handle
     void _sendPacketString(int command, const char *str); // send a string
     int _parseInt(int *outTarget, char *inBuffer, int parameter);
     int _parseInt(long *outTarget, char *inBuffer, int parameter);
     int _parseFloat(float *outTarget, char *inBuffer, int parameter);
     int _parseString(char *outBuffer, char *inBuffer, int parameter, int maxSize);
+    char* Xdtostrf(double val, signed char width, unsigned char prec, char* sout);
 
     Stream *_streamPtr;
     const char *_deviceName;

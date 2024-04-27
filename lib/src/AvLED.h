@@ -33,7 +33,7 @@ public:
         if (inData->handle == _dataRefHandle && (_index == -1 || inData->element==_index)){
             bool newState = (inData->inFloat >= _triggerValue) ? HIGH : LOW;
             if (newState != _currentState) {
-                char debugMsg[50];  // Make sure this buffer is large enough for your message
+                char debugMsg[50];  // Make sure this buffer is large enough 
                 sprintf(debugMsg, "pin %d set to state %d", _pin, newState);
                 _xplPro.sendDebugMessage(debugMsg);
                 digitalWrite(_pin, newState);

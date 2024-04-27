@@ -14,7 +14,7 @@ public:
             digitalWrite(_pinA, HIGH);  // Ensure pull-up is enabled (redundant in most cases)
             digitalWrite(_pinB, HIGH);  // Ensure pull-up is enabled (redundant in most cases)
 	        // Allow time for any passive R-C filters to stabilize
-	        delayMicroseconds(2000);
+	        delay(20);
         }
 		_inverted = useInternalPullUp;
         initializeState();

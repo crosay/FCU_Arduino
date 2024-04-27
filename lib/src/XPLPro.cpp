@@ -142,7 +142,8 @@ void XPLPro::datarefWrite(int handle, float value)
         return;
     }
     char tBuf[20]; // todo:  rewrite to eliminate this buffer.  Write directly to _sendBuffer
-    dtostrf(value, 0, XPL_FLOATPRECISION, tBuf);
+   
+    Xdtostrf(value, 0, XPL_FLOATPRECISION, tBuf);
     sprintf(_sendBuffer, "%c%c,%i,%s%c",
             XPL_PACKETHEADER,
             XPLCMD_DATAREFUPDATEFLOAT,
@@ -159,7 +160,7 @@ void XPLPro::datarefWrite(int handle, float value, int arrayElement)
         return;
     }
     char tBuf[20]; // todo:  rewrite to eliminate this buffer.  Write directly to _sendBuffer
-    dtostrf(value, 0, XPL_FLOATPRECISION, tBuf);
+    Xdtostrf(value, 0, XPL_FLOATPRECISION, tBuf);
     sprintf(_sendBuffer, "%c%c,%i,%s,%i%c",
             XPL_PACKETHEADER,
             XPLCMD_DATAREFUPDATEFLOATARRAY,
@@ -176,6 +177,17 @@ void XPLPro::_sendname()
     if (_deviceName != NULL)
     {
         _sendPacketString(XPLRESPONSE_NAME, _deviceName);
+    }
+}
+
+void XPLPro::_sendVersion()
+{
+    // register device on request only when we have a valid name
+    if (_deviceName != NULL)
+    {
+        char version[25];
+        sprintf(version, "%s %s", __DATE__, __TIME__);
+        _sendPacketString(XPLRESPONSE_VERSION, version);
     }
 }
 
@@ -215,6 +227,13 @@ void XPLPro::_processSerial()
     _processPacket();
 }
 
+int XPLPro::_receiveNSerial(int inSize)
+{
+    if (inSize > XPLMAX_PACKETSIZE_RECEIVE) inSize = XPLMAX_PACKETSIZE_RECEIVE;
+
+    return Serial.readBytes(_receiveBuffer, inSize);
+}
+
 void XPLPro::_processPacket()
 {
    
@@ -223,7 +242,7 @@ void XPLPro::_processPacket()
     {
         return;
     }
-    // branch on receiverd command
+    // branch on received command
     switch (_receiveBuffer[1])
     {
     // plane unloaded or XP exiting
@@ -234,9 +253,11 @@ void XPLPro::_processPacket()
 
     // register device
     case XPLCMD_SENDNAME:
+        _sendVersion();
         _sendname();
         _connectionStatus = true; // not considered active till you know my name
         _registerFlag = 0;
+        
         break;
 
     // plugin is ready for registrations.
@@ -290,9 +311,15 @@ void XPLPro::_processPacket()
         _xplInboundHandler(&_inData);
         break;
    
-        // Todo:  Still need to deal with inbound strings
-        // Todo:  implement type within struct
+    case XPLCMD_DATAREFUPDATESTRING:
+        _parseInt(&_inData.handle, _receiveBuffer, 2);
+        _parseInt(&_inData.strLength, _receiveBuffer, 3);
+        _receiveNSerial(_inData.strLength);
+        _inData.inStr = _receiveBuffer;
         
+        _xplInboundHandler(&_inData);
+        break;
+       
 
     // obsolete?            reserve for the time being...
   //  case XPLREQUEST_REFRESH:
@@ -417,7 +444,7 @@ int XPLPro::_parseInt(long *outTarget, char *inBuffer, int parameter)
     }
     char holdChar = inBuffer[pos];
     inBuffer[pos] = 0;
-    *outTarget = atoi((char *)&inBuffer[cBeg]);
+    *outTarget = atol((char *)&inBuffer[cBeg]);
     inBuffer[pos] = holdChar;
     return 0;
 }
@@ -530,3 +557,17 @@ void XPLPro::setScaling(int handle, int inLow, int inHigh, int outLow, int outHi
             XPL_PACKETTRAILER);
     _transmitPacket();
 }
+// Re-creation of dtostrf for non-AVR boards
+char *XPLPro::Xdtostrf(double val, signed char width, unsigned char prec, char* sout) 
+{
+#ifdef __AVR_ARCH__
+    return dtostrf(val, width, prec, sout);
+#else
+    char fmt[20];
+    sprintf(fmt, "%%%d.%df", width, prec);
+    sprintf(sout, fmt, val);
+    return sout;
+#endif
+
+}
+
