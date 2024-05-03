@@ -1,0 +1,8 @@
+{
+    "name": "XPLPro",
+    "version": "1.0.0",
+    "build": {
+      "srcDir": ".",
+      "srcFilter": "+<*> +<src> -<examples> -<test> -<doc>"
+    }
+  }

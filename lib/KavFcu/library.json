@@ -1,0 +1,8 @@
+{
+    "name": "KavFcu",
+    "version": "1.0.0",
+    "build": {
+      "srcDir": ".",
+      "srcFilter": "+<*> -<examples> -<test> -<doc>"
+    }
+  }

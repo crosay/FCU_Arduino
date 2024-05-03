@@ -1,4 +1,7 @@
+#ifndef AvPushButton_h
+#define AvPushButton_h
 #include <XPLPro.h>
+#include <Arduino.h>
 
 class AvPushButton {
 public:
@@ -39,3 +42,5 @@ private:
     unsigned long _lastDebounceTime;
     static const long debounceDelay = 50; // Debounce time in milliseconds
 };
+
+#endif

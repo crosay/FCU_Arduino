@@ -1,9 +1,8 @@
 #ifndef AvKavLcd_h
 #define AvKavLcd_h
 
-#include "KAV_A3XX_FCU_LCD.h"
 #include "XPLPro.h"    
-
+#include "KAV_A3XX_FCU_LCD.h"
 
 class AvKavLcd {
 public:
@@ -31,6 +30,9 @@ public:
         _lcd.begin();
         _lcd.clearLCD();
     }
+    void end(){
+        _lcd.clearLCD();
+    }
 
     void setDataRef(XPString_t* dataref, DataRefType type, int updateInterval = 100, float resolution = 1.0, int index = -1) {
         int handle = _xpl.registerDataRef(dataref);
@@ -46,35 +48,48 @@ public:
         }
     }
 
+    void refresh_display(){
+        display_speed_mach();
+
+    }
+
+    void display_speed_mach(){
+        if (_machMode == 1){
+            _lcd.setSpeedLabel(0);
+            _lcd.setMachLabel(1);
+            _lcd.setMachMode(_mach_value);
+        }else{
+            _lcd.setMachLabel(0);
+            _lcd.setSpeedLabel(1);
+            _lcd.showSpeedValue(_mach_value);
+        }
+    } 
+    void display_nav_hdg(){
+        if (_navMode == 1){
+            _lcd.setTrackMode();
+        }else{
+            _lcd.setHeadingMode();
+        }
+    }
+
     void update(inStruct *inData) {
         if (inData->handle == _refHandles[POWER]) {
-            _power_on = static_cast<int>(inData->inLong);  // Navigation mode
+            _power_on = static_cast<int>(inData->inLong) > 0;  //  power received
             if (_power_on){
-                 _lcd.setStartLabels();
+                _lcd.setStartLabels();
+                refresh_display();
             }else{
-                 _lcd.clearLCD();
+                _lcd.clearLCD();
             }
         }else if (inData->handle == _refHandles[SPD_MODE]) {
             _machMode = static_cast<int>(inData->inLong);  // Speed/Mach mode 1: MACH, 0: SPD
             if (_power_on){
-                if (_machMode == 1){
-                    _lcd.setSpeedLabel(0);
-                    _lcd.setMachLabel(1);
-                    _lcd.setMachMode(_mach_value);
-                }else{
-                    _lcd.setMachLabel(0);
-                    _lcd.setSpeedLabel(1);
-                    _lcd.showSpeedValue(_mach_value);
-                }
+                display_speed_mach();
             }
         } else if (inData->handle == _refHandles[NAV_MODE]) {
             _navMode = static_cast<int>(inData->inLong);  // Navigation mode
             if (_power_on){
-                if (_navMode == 1){
-                    _lcd.setTrackMode();
-                }else{
-                    _lcd.setHeadingMode();
-                }
+                display_nav_hdg();
             }
 
         } else if (_machMode == 1 && inData->handle == _refHandles[MACH]) {// MACH
@@ -99,7 +114,7 @@ private:
     int _navMode;         // 0 for HDG/VS, 1 for TRK/FPA
     int _mach_value;
     int _speed_value;
-    int _power_on = 0;
+    boolean _power_on = false;
 };
 
 #endif // AvKavLcd_h
