@@ -6,20 +6,26 @@
 
 class AvEncoder {
 public:
-    AvEncoder(int pinA, int pinB, XPLPro& xplPro, bool useInternalPullUp = true, int stepsPerNotch = 1)
-    : _pinA(pinA), _pinB(pinB), _xplPro(xplPro), _step(stepsPerNotch), _cmdCW(-1), _cmdCCW(-1) {
-        pinMode(_pinA, useInternalPullUp ? INPUT_PULLUP : INPUT);
-        pinMode(_pinB, useInternalPullUp ? INPUT_PULLUP : INPUT);
-        if (useInternalPullUp) {
-            digitalWrite(_pinA, HIGH);  // Ensure pull-up is enabled (redundant in most cases)
-            digitalWrite(_pinB, HIGH);  // Ensure pull-up is enabled (redundant in most cases)
-	        // Allow time for any passive R-C filters to stabilize
-	        delay(20);
-        }
-		_inverted = useInternalPullUp;
-        initializeState();
+    AvEncoder(int pinA, int pinB, XPLPro& xplPro, bool useInternalPullUp = false, int stepsPerNotch = 1)
+    : _pinA(pinA), _pinB(pinB), _xplPro(xplPro), _use_internal_pullup(useInternalPullUp), _step(stepsPerNotch), _cmdCW(-1), _cmdCCW(-1) {
     }
 
+	void begin(){
+		pinMode(_pinA, _use_internal_pullup ? INPUT_PULLUP : INPUT);
+        pinMode(_pinB, _use_internal_pullup ? INPUT_PULLUP : INPUT);
+        if (_use_internal_pullup) {
+            digitalWrite(_pinA, HIGH);  
+            digitalWrite(_pinB, HIGH);  
+	        // Allow time for any passive R-C filters to stabilize
+	        delayMicroseconds(2000);
+        }else{
+            digitalWrite(_pinA, LOW);  
+            digitalWrite(_pinB, LOW);  
+
+		}
+        initializeState();
+
+	}
     void initializeState() {
         _pinA_register = PIN_TO_BASEREG(_pinA);
         _pinA_bitmask = PIN_TO_BITMASK(_pinA);
@@ -51,11 +57,9 @@ public:
 			int8_t current = _mem > 0 ? 1 : -1;
 			_mem = 0;
 			if (current == 1){
-                _xplPro.commandTrigger(_inverted? _cmdCCW : _cmdCW);
-                _xplPro.sendDebugMessage("Encoder CW rotation detected.");
+                _xplPro.commandTrigger( _use_internal_pullup? _cmdCCW : _cmdCW);
 			}else{
-                _xplPro.commandTrigger(_inverted? _cmdCW : _cmdCCW);
-                _xplPro.sendDebugMessage("Encoder CCW rotation detected.");
+                _xplPro.commandTrigger(_use_internal_pullup? _cmdCW : _cmdCCW);
 			}
 
 		}
@@ -76,7 +80,7 @@ private:
     int _cmdCW;
     int _cmdCCW;
     uint8_t _lastState;
-	bool _inverted = false;
+	bool _use_internal_pullup = false;
 	volatile IO_REG_TYPE * _pinA_register;
 	volatile IO_REG_TYPE * _pinB_register;
 	IO_REG_TYPE _pinA_bitmask;

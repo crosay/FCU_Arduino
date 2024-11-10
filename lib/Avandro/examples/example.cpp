@@ -26,7 +26,7 @@ AvKavLcd lcdDisplay(8,9,10, xplPro);  //  pins for CS, CLK, DATA
 
 
 void registerWithXPlane() {
-    headingEncoder.updateCommandHandles(xplPro.registerCommand(F("sim/autopilot/heading_up")), xplPro.registerCommand(F("sim/autopilot/heading_down")));
+
     pushButtonSetHDG.updateCommandHandle(xplPro.registerCommand(F("sim/autopilot/heading")));
     obsEncoder.updateCommandHandles(xplPro.registerCommand(F("sim/radios/obs_HSI_up")), xplPro.registerCommand(F("sim/radios/obs_HSI_down")));
     pushButtonSetNAV.updateCommandHandle(xplPro.registerCommand(F("sim/autopilot/NAV")));

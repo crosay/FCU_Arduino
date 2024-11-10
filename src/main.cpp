@@ -8,13 +8,15 @@
 #include <arduino.h>
 #include <XPLPro.h>              //  include file for the X-plane direct interface 
 #include <AvKavLcd.h>
+#include <AvLED.h>
 XPLPro XP(&Serial);      // create an instance of it
 
 
 long int startTime;
-
+int v=LOW;
 int drefParkingBrake;   // this stores a handle to the parking brake dataref 
 AvKavLcd fcu(8, 9, 10, XP);
+AvLED heart_beat(13, XP);
 /*
  * callback function we specified that will be called any time our requested data is sent to us.
  * handle is the handle to the dataref.  The following variables within the plugin are how we receive the data:
@@ -57,6 +59,8 @@ void setup() {
 void loop() {
  
   XP.xloop();  //  needs to run every cycle.  
+  heart_beat.set(v);        
+  v = v == LOW? HIGH : LOW;
 
 /************************************************************************************************************************************
  * everything after the next line will only occur every 100ms.  You can also utilize other time values.
@@ -65,7 +69,7 @@ void loop() {
  ************************************************************************************************************************************
 */
 
-  if (millis() - startTime > 100) startTime = millis();   else return;          
+  if (millis() - startTime > 100) startTime = millis();   else return;  
 
 }
 
